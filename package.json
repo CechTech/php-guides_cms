@@ -3,5 +3,9 @@
     "webpack": "^4.43.0",
     "webpack-cli": "^3.3.11",
     "webpack-merge": "^4.2.2"
+  },
+  "scripts": {
+    "dev": "webpack --config build/config.development.js",
+    "prod": "webpack --config build/config.production.js"
   }
 }
