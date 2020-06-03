@@ -83,4 +83,9 @@
       ?>
     </ul>
   </nav>
+
+  <div data-controller="hello">
+    <input type="text">
+    <button>Greet</button>
+  </div>
 <?php include "includes/footer.php"; ?>

@@ -1,32 +1,29 @@
-const path = require('path')
-const { SRC, DIST, ASSETS } = require('./paths')
+const path = require("path")
 
 module.exports = {
   entry: {
-    scripts: path.resolve(SRC, 'js', 'index.js')
+    bundle: "./src/application.js"
   },
+
   output: {
-    // Put all the bundled stuff in your dist folder
-    path: DIST,
-
-    // Our single entry point from above will be named "scripts.js"
-    filename: '[name].js',
-
-    // The output path as seen from the domain we're visiting in the browser
-    publicPath: ASSETS
+    filename: "[name].js",
+    path: path.resolve(__dirname, "public")
   },
+
+  mode: "production",
+  devtool: "source-map",
+
   module: {
-  rules: [
-    {
-      test: /\.m?js$/,
-      exclude: /(node_modules|bower_components)/,
-      use: {
-        loader: 'babel-loader',
-        options: {
-          presets: ['@babel/preset-env']
-        }
+    rules: [
+      {
+        test: /\.js$/,
+        exclude: [
+          /node_modules/
+        ],
+        use: [
+          { loader: "babel-loader" }
+        ]
       }
-    }
-  ]
-}
+    ]
+  }
 }
