@@ -14,5 +14,19 @@ module.exports = {
 
     // The output path as seen from the domain we're visiting in the browser
     publicPath: ASSETS
-  }
+  },
+  module: {
+  rules: [
+    {
+      test: /\.m?js$/,
+      exclude: /(node_modules|bower_components)/,
+      use: {
+        loader: 'babel-loader',
+        options: {
+          presets: ['@babel/preset-env']
+        }
+      }
+    }
+  ]
+}
 }
