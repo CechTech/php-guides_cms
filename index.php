@@ -84,15 +84,4 @@
     </ul>
   </nav>
 
-  <div class="row">
-    <div data-controller="markdown">
-      <div class="col-md-6">
-        <textarea data-target="markdown.content" data-action="keyup->markdown#render_markdown" type="text" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-      </div>
-      <div class="col-md-6">
-        <div data-target="markdown.output" class="preview"></div>
-      </div>
-    </div>
-  </div>
-
 <?php include "includes/footer.php"; ?>

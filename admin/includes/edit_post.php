@@ -138,10 +138,25 @@
 		<input value="<?php echo $post_tags; ?>" type="text" class="form-control" id="post_tags" name="post_tags">
 	</div>
 
-	<div class="form-group">
-		<label for="post_content">Post Content</label>
-		<textarea class="form-control" id="post_content" name="post_content" cols="30" rows="10"><?php echo str_replace('\r\n', '</br>', $post_content); ?></textarea>
-	</div>
+	<div class="row">
+    <div data-controller="markdown" class="form-group">
+      <div class="col-md-6">
+				<label for="post_content">Markdown Content</label>
+        <textarea
+					data-target="markdown.content"
+					data-action="keyup->markdown#render_markdown"
+					type="text"
+					class="form-control"
+					name="post_content"
+					id="post_content"
+					rows="30"><?php echo str_replace('\r\n', '&#013;&#010;', $post_content); ?></textarea>
+      </div>
+      <div class="col-md-6">
+				<label for="post_content">Preview</label>
+        <div data-target="markdown.output" class="preview"></div>
+      </div>
+    </div>
+  </div>
 
 	<div class="form-group">
 		<input class="btn btn-primary" type="submit" name="update_post" value="Edit Post">

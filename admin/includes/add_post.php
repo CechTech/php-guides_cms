@@ -91,6 +91,26 @@
 		<textarea class="form-control" name="post_content" cols="30" rows="10" id="post_content"></textarea>
 	</div>
 
+	<div class="row">
+    <div data-controller="markdown" class="form-group">
+      <div class="col-md-6">
+				<label for="markdown_content">Markdown Content</label>
+        <textarea
+					data-target="markdown.content"
+					data-action="keyup->markdown#render_markdown"
+					type="text"
+					class="form-control"
+					name="markdown_content"
+					id="markdown_content"
+					rows="30"></textarea>
+      </div>
+      <div class="col-md-6">
+				<label for="markdown_content">Preview</label>
+        <div data-target="markdown.output" class="preview"></div>
+      </div>
+    </div>
+  </div>
+
 	<div class="form-group">
 		<input class="btn btn-primary" type="submit" name="create_post" value="Create Post">
 	</div>
