@@ -153,7 +153,7 @@
       </div>
       <div class="col-md-6">
 				<label for="post_content">Preview</label>
-        <div data-target="markdown.output" class="preview"></div>
+        <div data-target="markdown.output"></div>
       </div>
     </div>
   </div>
