@@ -27,7 +27,7 @@
 			$post_image = escape($_FILES['post_image'] ['name']);
 			$post_image_tmp = escape($_FILES['post_image'] ['tmp_name']);
 			$post_tags = escape($_POST['post_tags']);
-			$post_content = escape($_POST['post_content']);
+			$post_content = $_POST['post_content'];
 
 			move_uploaded_file($post_image_tmp, "../images/$post_image");
 

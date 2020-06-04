@@ -18,6 +18,11 @@ export default class extends Controller {
   get md() {
     const md = require('markdown-it')({
       breaks: true,
+    }).use(require('markdown-it-textual-uml'));
+
+    const mermaid = require('mermaid');
+    mermaid.initialize({
+      theme: 'forest'
     });
 
     return md;
