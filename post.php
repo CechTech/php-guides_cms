@@ -38,7 +38,12 @@
               <hr>
               <img class="img-responsive" src="images/<?php echo $post_image;?>" alt="">
               <hr>
-              <p><?php echo $post_content; ?></p>
+              <div data-controller="markdown">
+                <textarea data-target="markdown.content" style="display: none">
+                  <?php echo $post_content; ?>
+                </textarea>
+                <div data-target="markdown.output"></div>
+              </div>
               <hr>
   				<?php
   					}
