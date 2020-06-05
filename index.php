@@ -3,7 +3,7 @@
 <div class="container">
   <div class="row">
     <div class="col-md-8">
-      <h1 class="page-header">CMS</h1>
+      <h1 class="page-header">Guides</h1>
   			<?php
   				if(isset($_SESSION['role']) && $_SESSION['role'] == 'admin') {
   					$post_query_count = "SELECT * FROM posts";

@@ -5,20 +5,19 @@
 <html lang="en">
 
 <head>
-	<meta charset="utf-8" />
-	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<meta name="description" content="This website was built for my learning purposes. Project is written in PHP and uses MySQL database. Bootstrap is used for sake of simplicity." />
-	<meta name="author" content="Jiří Čech" />
-	<meta name="keywords" content="cms, php, unsplash, photos, nature, buildings, architecture, space, bootstrap, mysql" />
-  <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description"
+          content="This website was built for my learning purposes. Project is written in PHP and uses MySQL database. Bootstrap is used for sake of simplicity."/>
+    <meta name="author" content="Jiří Čech"/>
+    <meta name="keywords"
+          content="cms, php, unsplash, photos, nature, buildings, architecture, space, bootstrap, mysql"/>
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon"/>
 
-	<link rel="stylesheet" type="text/css" href="css/blog-home.css" />
-	<link rel="stylesheet" type="text/css" href="css/styles.css" />
+    <script src="build/public/bundle.js" async></script>
 
-	<script src="build/public/bundle.js" async></script>
-
-	<title>PHP CMS | Jiří Čech</title>
+    <title>Guides CMS | Jiří Čech</title>
 </head>
 
 <body>
