@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-  <a class="navbar-brand" href="../admin">Guides Admin</a>
+  <a class="navbar-brand" href="./index.php">Guides Admin</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
           aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -7,7 +7,7 @@
 
   <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
     <ul class="navbar-nav bg-dark mr-auto">
-      <li class='nav-item'><a class='nav-link' href="../../index.php"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a></li>
+      <li class='nav-item'><a class='nav-link' href="./index.php"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a></li>
 
       <li class='nav-item dropdown'>
         <a class='nav-link dropdown-toggle' href="#" id="postsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

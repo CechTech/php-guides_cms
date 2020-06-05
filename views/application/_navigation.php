@@ -42,7 +42,7 @@
 
       if (isset($_SESSION['role'])) {
         if ($_SESSION['role'] == 'admin') {
-          echo "<li class='nav-item'><a class='nav-link' href='admin'>Admin</a></li>";
+          echo "<li class='nav-item'><a class='nav-link' href='admin/index.php'>Admin</a></li>";
         }
       }
 
