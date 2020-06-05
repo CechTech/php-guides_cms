@@ -26,6 +26,9 @@
     <link href="css/sb-admin.css" rel="stylesheet" />
     <link href="css/styles.css" rel="stylesheet" />
 
+		<script src="../build/public/bundle.js" async></script>
+
+
     <title>PHP CMS Admin | Jiří Čech</title>
   </head>
   <body>
