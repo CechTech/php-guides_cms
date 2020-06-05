@@ -54,49 +54,52 @@ if(isset($_GET['edit_user'])) {
   header("Location: users.php");
 }
 ?>
-<h1 class="page-header">Edit User <?php echo $user_name; ?></h1>
 
-<form method="post" enctype="multipart/form-data">
-  <div class="form-group">
-    <label for="user_firstname">Firstname</label>
-    <input type="text" class="form-control" id="user_firstname" value="<?php echo $user_firstname; ?>" name="user_firstname">
-  </div>
+<div class="container">
+  <h1 class="page-header">Edit User <?php echo $user_name; ?></h1>
 
-  <div class="form-group">
-    <label for="user_lastname">Lastname</label>
-    <input type="text" class="form-control" id="user_lastname" value="<?php echo $user_lastname; ?>" name="user_lastname">
-  </div>
+  <form method="post" enctype="multipart/form-data">
+    <div class="form-group">
+      <label for="user_firstname">Firstname</label>
+      <input type="text" class="form-control" id="user_firstname" value="<?php echo $user_firstname; ?>" name="user_firstname">
+    </div>
 
-  <div class="form-group">
-    <label for="user_role">Role</label>
-    <select name="user_role" class="form-control" id="user_role">
-      <option value="<?php echo $user_role; ?>"><?php echo ucfirst($user_role); ?></option>
-      <?php
-      if($user_role == 'admin') {
-        echo "<option value='subscriber'>Subscriber</option>";
-      } else {
-        echo "<option value='admin'>Admin</option>";
-      }
-      ?>
-    </select>
-  </div>
+    <div class="form-group">
+      <label for="user_lastname">Lastname</label>
+      <input type="text" class="form-control" id="user_lastname" value="<?php echo $user_lastname; ?>" name="user_lastname">
+    </div>
 
-  <div class="form-group">
-    <label for="user_name">Username</label>
-    <input type="text" class="form-control" id="user_name" value="<?php echo $user_name; ?>" name="user_name">
-  </div>
+    <div class="form-group">
+      <label for="user_role">Role</label>
+      <select name="user_role" class="form-control" id="user_role">
+        <option value="<?php echo $user_role; ?>"><?php echo ucfirst($user_role); ?></option>
+        <?php
+        if($user_role == 'admin') {
+          echo "<option value='subscriber'>Subscriber</option>";
+        } else {
+          echo "<option value='admin'>Admin</option>";
+        }
+        ?>
+      </select>
+    </div>
 
-  <div class="form-group">
-    <label for="user_email">Email</label>
-    <input type="email" class="form-control" id="user_email" value="<?php echo $user_email; ?>" name="user_email">
-  </div>
+    <div class="form-group">
+      <label for="user_name">Username</label>
+      <input type="text" class="form-control" id="user_name" value="<?php echo $user_name; ?>" name="user_name">
+    </div>
 
-  <div class="form-group">
-    <label for="user_password">Password</label>
-    <input type="password" class="form-control" id="user_password" value="<?php echo $user_password; ?>" name="user_password">
-  </div>
+    <div class="form-group">
+      <label for="user_email">Email</label>
+      <input type="email" class="form-control" id="user_email" value="<?php echo $user_email; ?>" name="user_email">
+    </div>
 
-  <div class="form-group">
-    <input class="btn btn-primary" type="submit" name="edit_user" value="Edit User">
-  </div>
-</form>
+    <div class="form-group">
+      <label for="user_password">Password</label>
+      <input type="password" class="form-control" id="user_password" value="<?php echo $user_password; ?>" name="user_password">
+    </div>
+
+    <div class="form-group">
+      <input class="btn btn-primary" type="submit" name="edit_user" value="Edit User">
+    </div>
+  </form>
+</div>
