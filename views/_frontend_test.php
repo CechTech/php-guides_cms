@@ -1,6 +1,3 @@
-<?php include "includes/header.php"; ?>
-<?php include "includes/navigation.php"; ?>
-
 <div class="container">
   <h1>Frontend tests</h1>
   <div data-controller="frontend-test">
@@ -17,5 +14,4 @@
       data-toggle="tooltip"
       data-placement="top"
       title="Fully loaded">Bootstrap</button>
-
-<?php include "includes/footer.php"; ?>
+</div>
