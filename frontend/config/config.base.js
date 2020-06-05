@@ -3,12 +3,12 @@ const webpack = require('webpack');
 
 module.exports = {
   entry: {
-    bundle: "./src/application.js"
+    bundle: "./frontend/application.js"
   },
 
   output: {
     filename: "[name].js",
-    path: path.resolve(__dirname, "public")
+    path: path.resolve("../../build", "public")
   },
 
   mode: "production",

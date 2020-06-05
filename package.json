@@ -23,7 +23,7 @@
     "webpack-merge": "^4.2.2"
   },
   "scripts": {
-    "dev": "webpack --config build/config.development.js",
-    "prod": "webpack --config build/config.production.js"
+    "dev": "webpack --config frontend/config/config.development.js",
+    "prod": "webpack --config frontend/config/config.production.js"
   }
 }
