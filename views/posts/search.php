@@ -23,14 +23,14 @@
             $post_content = substr($row ['post_content'], 0, 200);
             ?>
             <h2>
-              <a href="../post.php?p_id=<?php echo $post_id; ?>"><?php echo $post_title ?></a>
+              <a href="../../post.php?p_id=<?php echo $post_id; ?>"><?php echo $post_title ?></a>
             </h2>
             <p class="lead">
-              by <a href="../user_post.php?user=<?php echo $post_user ?>&p_id=<?php echo $post_id ?>"><?php echo $post_user ?></a>
+              by <a href="../../user_posts.php?user=<?php echo $post_user ?>&p_id=<?php echo $post_id ?>"><?php echo $post_user ?></a>
             </p>
             <p><span class="glyphicon glyphicon-time"></span><?php echo $post_date ?></p>
             <hr>
-            <a href="../post.php?p_id=<?php echo $post_id; ?>">
+            <a href="../../post.php?p_id=<?php echo $post_id; ?>">
               <img class="img-responsive" src="images/<?php echo $post_image;?>" alt="">
             </a>
             <hr>
@@ -40,6 +40,6 @@
       }
       ?>
     </div>
-    <?php include "includes/sidebar.php"; ?>
+    <?php include "views/application/_sidebar.php"; ?>
   </div>
   <hr>

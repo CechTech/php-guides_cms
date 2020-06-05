@@ -1,4 +1,4 @@
 <?php
-$view = 'views/_registration.php';
-include('layout.php');
+$view = 'views/authentication/registration.php';
+include('views/layouts/application.php');
 ?>

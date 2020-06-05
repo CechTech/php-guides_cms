@@ -1,4 +1,4 @@
 <?php
-$view = 'views/_posts.php';
-include('layout.php');
+$view = 'views/posts/index.php';
+include('views/layouts/application.php');
 ?>

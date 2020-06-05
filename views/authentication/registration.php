@@ -19,7 +19,7 @@ if(isset($_POST['username']) && isset($_POST['email']) && isset($_POST['password
           <h1>Register</h1>
           <p>You will be registered as a subscriber. In order to get to the CMS you will have to wait for admin to approve you.</p>
           <hr>
-          <form action="../registration.php" method="post" id="registrationForm" autocomplete="off">
+          <form action="../../registration.php" method="post" id="registrationForm" autocomplete="off">
             <div id="error" class="bg-error"></div>
             <div class="form-group has-feedback" id="usernameGroup">
               <label for="username" class="control-label">Username</label>

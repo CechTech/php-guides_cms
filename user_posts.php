@@ -1,4 +1,4 @@
 <?php
-$view = 'views/frontend_test/index.php';
+$view = 'views/posts/user_posts.php';
 include('views/layouts/application.php');
 ?>

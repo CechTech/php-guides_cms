@@ -31,7 +31,7 @@
             $post_content = $row ['post_content'];
             ?>
             <h2><?php echo $post_title ?></h2>
-            <p class="lead">by <a href="../user_post.php?user=<?php echo $post_user ?>&p_id=<?php echo $post_id ?>"><?php echo $post_user ?></a></p>
+            <p class="lead">by <a href="../../user_posts.php?user=<?php echo $post_user ?>&p_id=<?php echo $post_id ?>"><?php echo $post_user ?></a></p>
             <p><span class="glyphicon glyphicon-time"></span><?php echo $post_date ?></p>
             <hr>
             <img class="img-responsive" src="images/<?php echo $post_image;?>" alt="">
@@ -116,6 +116,6 @@
       }
       ?>
     </div>
-    <?php include "includes/sidebar.php"; ?>
+    <?php include "views/application/_sidebar.php"; ?>
   </div>
   <hr>

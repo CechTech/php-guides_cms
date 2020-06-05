@@ -21,9 +21,9 @@
 </head>
 
 <body>
-<?php include "includes/navigation.php"; ?>
+<?php include "views/application/_navigation.php"; ?>
 <?php include($view); ?>
-<?php include "includes/footer.php"; ?>
+<?php include "views/application/_footer.php"; ?>
 </body>
 
 </html>

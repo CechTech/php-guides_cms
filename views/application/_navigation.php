@@ -37,7 +37,7 @@
       ?>
       <?php
       if (!isset($_SESSION['role'])) {
-        echo "<li class='nav-item $registration_class'><a class='nav-link' href='../views/registration.php'>Registration</a></li>";
+        echo "<li class='nav-item $registration_class'><a class='nav-link' href='registration.php'>Registration</a></li>";
       }
 
       if (isset($_SESSION['role'])) {
@@ -54,7 +54,7 @@
       }
       ?>
     </ul>
-    <form class="form-inline my-2 my-lg-0" action="../views/search.php" method="post">
+    <form class="form-inline my-2 my-lg-0" action="search.php" method="post">
       <input class="form-control mr-sm-2" name="search" type="search" placeholder="Search" aria-label="Search">
       <button class="btn btn-outline-success my-2 my-sm-0" name="submit_search" type="submit">Search</button>
     </form>
