@@ -72,13 +72,13 @@
   </div>
 
   <nav aria-label="Page navigation">
-    <ul class="pagination pagination-lg">
+    <ul class="pagination">
       <?php
       for($i = 1; $i <= $count; $i++) {
         if($i == $page) {
-          echo "<li class='active'><a href='user_posts.php?user=$the_post_user&p_id=$post_id&page={$i}'>{$i}</a></li>";
+          echo "<li class='active page-item'><a class='page-link' href='user_posts.php?user=$the_post_user&p_id=$post_id&page={$i}'>{$i}</a></li>";
         } else {
-          echo "<li><a href='user_posts.php?user=$the_post_user&p_id=$post_id&page={$i}'>{$i}</a></li>";
+          echo "<li class='page-item'><a class='page-link' href='user_posts.php?user=$the_post_user&p_id=$post_id&page={$i}'>{$i}</a></li>";
         }
       }
       ?>

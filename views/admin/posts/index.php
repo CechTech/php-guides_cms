@@ -21,11 +21,11 @@
       </div>
     </div>
 
-    <div class="table-responsive">
-      <table class="table table-bordered table-hover">
+    <div class="table-responsive" data-controller="checkbox">
+      <table class="table table-bordered">
         <thead>
         <tr>
-          <th><input id="selectAllBoxes" type="checkbox"></th>
+          <th><input type="checkbox" data-target="checkbox.global" data-action="click->checkbox#toggle"></th>
           <th>ID</th>
           <th>Users</th>
           <th>Title</th>
@@ -67,7 +67,7 @@
           $cat_title = $row ['cat_title'];
 
           echo "<tr>";
-          echo "<td><input class='checkBoxes' type='checkbox' name='checkBoxArray[]' value='$post_id'></td>";
+          echo "<td><input type='checkbox' name='checkBoxArray[]' value='$post_id' data-target='checkbox.single'></td>";
           echo "<td>{$post_id}</td>";
 
           if (!empty($post_user)) {
@@ -121,9 +121,23 @@
       </table>
     </div>
   </form>
+
+  <nav aria-label="Page navigation">
+    <ul class="pagination pagination-lg">
+      <?php
+      for($i = 1; $i <= $count; $i++) {
+        if($i == $page) {
+          echo "<li class='active'><a href='user_posts.php?user=$the_post_user&p_id=$post_id&page={$i}'>{$i}</a></li>";
+        } else {
+          echo "<li><a href='user_posts.php?user=$the_post_user&p_id=$post_id&page={$i}'>{$i}</a></li>";
+        }
+      }
+      ?>
+    </ul>
+  </nav>
 </div>
 
-<script>
+<!--<script>
   $(document).ready(function() {
     $('.delete_link').on('click', function() {
       var id = $(this).attr("rel");
@@ -133,4 +147,4 @@
       $("#myModal").modal('show');
     });
   });
-</script>
+</script>-->

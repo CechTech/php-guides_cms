@@ -13,7 +13,7 @@ if(!isset($_SESSION['role'])) {
 <head>
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="Administration layout for CMS." />
   <meta name="author" content="Jiří Čech" />
   <meta name="keywords" content="cms, php, bootstrap, mysql, admin" />
@@ -21,9 +21,6 @@ if(!isset($_SESSION['role'])) {
 
   <script src="https://use.fontawesome.com/81ebd77a72.js"></script>
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-
-  <link href="css/sb-admin.css" rel="stylesheet" />
-  <link href="css/styles.css" rel="stylesheet" />
 
   <script src="../build/public/bundle.js" async></script>
 

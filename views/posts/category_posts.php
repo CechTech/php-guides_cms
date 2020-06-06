@@ -84,13 +84,14 @@
   </div>
 
   <nav aria-label="Page navigation">
-    <ul class="pagination pagination-lg">
+
+    <ul class="pagination">
       <?php
       for($i = 1; $i <= $count; $i++) {
         if($i == $page) {
-          echo "<li class='active'><a href='category.php?category=$post_category_id&page={$i}'>{$i}</a></li>";
+          echo "<li class='active page-item'><a class='page-link' href='category.php?category=$post_category_id&page={$i}'>{$i}</a></li>";
         } else {
-          echo "<li><a href='category.php?category=$post_category_id&page={$i}'>{$i}</a></li>";
+          echo "<li class='page-item'><a class='page-link' href='category.php?category=$post_category_id&page={$i}'>{$i}</a></li>";
         }
       }
       ?>
