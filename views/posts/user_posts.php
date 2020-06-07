@@ -68,7 +68,6 @@
       }
       ?>
     </div>
-    <?php include "views/application/_sidebar.php"; ?>
   </div>
 
   <nav aria-label="Page navigation">

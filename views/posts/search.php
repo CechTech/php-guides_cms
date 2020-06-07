@@ -40,6 +40,5 @@
       }
       ?>
     </div>
-    <?php include "views/application/_sidebar.php"; ?>
   </div>
   <hr>
