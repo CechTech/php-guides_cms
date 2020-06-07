@@ -7,28 +7,10 @@ if(!is_admin($_SESSION['username'])) {
   <h1 class="page-header">Users</h1>
 
   <form method="post">
-    <div class="row space">
-      <div class="col-xs-4 options" id="bulkOptionsContainer">
-        <select name="bulk_options" class="form-control">
-          <option value="">Select Options</option>
-          <option value="admin">Admin</option>
-          <option value="subscriber">Subscriber</option>
-          <option value="duplicate">Duplicate</option>
-          <option value="delete">Delete</option>
-        </select>
-      </div>
-
-      <div class="col-xs-4">
-        <input type="submit" class="btn btn-success" value="Apply" name="submit">
-        <a href="users.php?source=add_user" class="btn btn-primary">Add New</a>
-      </div>
-    </div>
-
     <div class="table-responsive">
       <table class="table table-bordered table-hover">
         <thead>
         <tr>
-          <th><input id="selectAllBoxes" type="checkbox"></th>
           <th>ID</th>
           <th>Username</th>
           <th>Firstname</th>
@@ -59,7 +41,6 @@ if(!is_admin($_SESSION['username'])) {
           $role = $row ['role'];
 
           echo "<tr>";
-          echo "<td><input class='checkBoxes' type='checkbox' name='checkBoxArray[]' value='$id'></td>";
           echo "<td>{$id}</td>";
           echo "<td>{$username}</td>";
           echo "<td>{$firstname}</td>";

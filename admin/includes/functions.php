@@ -67,7 +67,6 @@ function showAllCategories() {
 		$cat_id = $row['cat_id'];
 		$cat_title = $row['cat_title'];
 		echo "<tr>";
-		echo "<td><input class='checkBoxes' type='checkbox' name='checkBoxArray[]' value='$cat_id'></td>";
 		echo "<td>{$cat_id}</td>";
 		echo "<td>{$cat_title}</td>";
 		echo "<td><a href='categories.php?edit={$cat_id}'>Edit</a></td>";

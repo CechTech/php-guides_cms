@@ -2,28 +2,10 @@
   <h1 class="page-header">Posts</h1>
 
   <form method="post">
-    <div class="row space">
-      <div class="col-xs-4 options" id="bulkOptionsContainer">
-        <select name="bulk_options" class="form-control">
-          <option value="">Select Options</option>
-          <option value="published">Publish</option>
-          <option value="draft">Draft</option>
-          <option value="duplicate">Duplicate</option>
-          <option value="delete">Delete</option>
-        </select>
-      </div>
-
-      <div class="col-xs-4">
-        <input type="submit" class="btn btn-success" value="Apply" name="submit">
-        <a href="posts.php?source=add_post" class="btn btn-primary">Add New</a>
-      </div>
-    </div>
-
     <div class="table-responsive" data-controller="checkbox">
       <table class="table table-bordered">
         <thead>
         <tr>
-          <th><input type="checkbox" data-target="checkbox.global" data-action="click->checkbox#toggle"></th>
           <th>ID</th>
           <th>Users</th>
           <th>Title</th>
@@ -65,7 +47,6 @@
           $cat_title = $row ['cat_title'];
 
           echo "<tr>";
-          echo "<td><input type='checkbox' name='checkBoxArray[]' value='$post_id' data-target='checkbox.single'></td>";
           echo "<td>{$post_id}</td>";
 
           if (!empty($post_user)) {

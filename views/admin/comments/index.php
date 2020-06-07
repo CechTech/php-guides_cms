@@ -1,27 +1,10 @@
 <div class="container">
   <h1 class="page-header">Comments</h1>
   <form method="post">
-    <div class="row space">
-      <div class="col-xs-4 options" id="bulkOptionsContainer">
-        <select name="bulk_options" class="form-control">
-          <option value="">Select Options</option>
-          <option value="approved">Approve</option>
-          <option value="unapproved">Unapprove</option>
-          <option value="duplicate">Duplicate</option>
-          <option value="delete">Delete</option>
-        </select>
-      </div>
-
-      <div class="col-xs-4">
-        <input type="submit" class="btn btn-success" value="Apply" name="submit">
-      </div>
-    </div>
-
     <div class="table-responsive">
-      <table class="table table-bordered table-hover">
+      <table class="table table-bordered">
         <thead>
         <tr>
-          <th><input id="selectAllBoxes" type="checkbox"></th>
           <th>ID</th>
           <th>Author</th>
           <th>Comment</th>
@@ -42,16 +25,15 @@
         confirmQuery($select_comments);
 
         while($row = mysqli_fetch_assoc($select_comments)) {
-          $comment_id = $row ['comment_id'];
-          $comment_post_id = $row ['comment_post_id'];
-          $comment_author = $row ['comment_author'];
-          $comment_content = $row ['comment_content'];
-          $comment_email = $row ['comment_email'];
-          $comment_status = $row ['comment_status'];
-          $comment_date = $row ['comment_date'];
+          $comment_id = $row['comment_id'];
+          $comment_post_id = $row['comment_post_id'];
+          $comment_author = $row['comment_author'];
+          $comment_content = $row['comment_content'];
+          $comment_email = $row['comment_email'];
+          $comment_status = $row['comment_status'];
+          $comment_date = $row['comment_date'];
 
           echo "<tr>";
-          echo "<td><input class='checkBoxes' type='checkbox' name='checkBoxArray[]' value='$comment_id'></td>";
           echo "<td>{$comment_id}</td>";
           echo "<td>{$comment_author}</td>";
           echo "<td>{$comment_content}</td>";

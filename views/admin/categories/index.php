@@ -22,24 +22,9 @@
     </div>
 
     <div class="col-xs-6">
-      <div class="row space">
-        <div class="col-xs-4 options" id="bulkOptionsContainer">
-          <select name="bulk_options" class="form-control">
-            <option value="">Select Options</option>
-            <option value="duplicate">Duplicate</option>
-            <option value="delete">Delete</option>
-          </select>
-        </div>
-
-        <div class="col-xs-4">
-          <input type="submit" class="btn btn-success" value="Apply" name="submit_option">
-        </div>
-      </div>
-
-      <table class="table table-bordered table-hover">
+      <table class="table table-bordered">
         <thead>
         <tr>
-          <th><input id="selectAllBoxes" type="checkbox"></th>
           <th>ID</th>
           <th>Category Title</th>
           <th>Edit</th>
