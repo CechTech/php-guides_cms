@@ -1,5 +1,3 @@
-<?php checkBoxesComments(); ?>
-
 <div class="container">
   <h1 class="page-header">Comments</h1>
   <form method="post">

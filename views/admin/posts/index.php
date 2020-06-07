@@ -1,5 +1,3 @@
-<?php checkBoxesPosts(); ?>
-
 <div class="container">
   <h1 class="page-header">Posts</h1>
 

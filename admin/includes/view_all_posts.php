@@ -1,4 +1,3 @@
-<?php checkBoxesPosts(); ?>
 <h1 class="page-header">Posts</h1>
 
 <form method="post">

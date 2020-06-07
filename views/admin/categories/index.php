@@ -50,7 +50,6 @@
         <tbody>
         <?php
         showAllCategories();
-        checkBoxesCategories();
         deleteCategories();
         ?>
         </tbody>

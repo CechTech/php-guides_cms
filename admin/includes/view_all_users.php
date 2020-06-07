@@ -1,4 +1,3 @@
-<?php checkBoxesUsers(); ?>
 <h1 class="page-header">Users</h1>
 
 <form method="post">
