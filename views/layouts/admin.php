@@ -22,8 +22,8 @@ if(!isset($_SESSION['role'])) {
   <script src="https://use.fontawesome.com/81ebd77a72.js"></script>
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/styles/darkula.min.css">
-  
-  <script src="../build/public/bundle.js" async></script>
+
+  <script src="../public/bundle.js" async></script>
 
   <title>Guides CMS Admin | Jiří Čech</title>
 </head>

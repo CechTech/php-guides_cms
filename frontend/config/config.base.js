@@ -7,8 +7,8 @@ module.exports = {
   },
 
   output: {
-    filename: "[name].js",
-    path: path.resolve("./build", "public")
+    filename: "bundle.js",
+    path: path.resolve("./", "public")
   },
 
   mode: "production",

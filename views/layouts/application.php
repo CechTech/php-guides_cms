@@ -16,7 +16,7 @@
   <link rel="icon" href="images/favicon.ico" type="image/x-icon"/>
   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/styles/darkula.min.css">
 
-  <script src="build/public/bundle.js" async></script>
+  <script src="public/bundle.js" async></script>
 
   <title>Guides CMS | Jiří Čech</title>
 </head>
