@@ -14,6 +14,7 @@
   <meta name="keywords"
         content="cms, php, unsplash, photos, nature, buildings, architecture, space, bootstrap, mysql"/>
   <link rel="icon" href="images/favicon.ico" type="image/x-icon"/>
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/styles/darkula.min.css">
 
   <script src="build/public/bundle.js" async></script>
 

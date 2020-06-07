@@ -7,6 +7,7 @@
     "babel-loader": "^8.1.0",
     "bootstrap": "^4.5.0",
     "css-loader": "^3.5.3",
+    "highlight.js": "^10.0.3",
     "jquery": "^3.5.1",
     "markdown-it": "^11.0.0",
     "markdown-it-textual-uml": "^0.1.3",

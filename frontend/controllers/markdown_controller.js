@@ -16,8 +16,19 @@ export default class extends Controller {
   }
 
   get md() {
+    const hljs = require('highlight.js');
+
     const md = require('markdown-it')({
       breaks: true,
+      highlight: function (str, lang) {
+        if (lang && hljs.getLanguage(lang)) {
+          try {
+            return hljs.highlight(lang, str).value;
+          } catch (__) {}
+        }
+
+        return ''; // use external default escaping
+      }
     }).use(require('markdown-it-textual-uml'));
 
     const mermaid = require('mermaid');
