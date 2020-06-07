@@ -139,14 +139,13 @@ if(isset($_GET['p_id'])) {
       <input value="<?php echo $post_tags; ?>" type="text" class="form-control" id="post_tags" name="post_tags">
     </div>
 
-    <div class="row">
-      <div data-controller="markdown" class="form-group">
+    <div data-controller="markdown" class="form-group">
+      <div class="row">
         <div class="col-md-6">
           <label for="post_content">Markdown Content</label>
           <textarea
             data-target="markdown.content"
             data-action="keyup->markdown#render_markdown"
-            type="text"
             class="form-control"
             name="post_content"
             id="post_content"

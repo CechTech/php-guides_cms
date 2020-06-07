@@ -20,7 +20,7 @@ if(!isset($_SESSION['role'])) {
   <link rel="icon" href="../../images/favicon.ico" type="image/x-icon" />
 
   <script src="https://use.fontawesome.com/81ebd77a72.js"></script>
-  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script src="https://www.gstatic.com/charts/loader.js"></script>
 
   <script src="../public/bundle.js" async></script>
 
