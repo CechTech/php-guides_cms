@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-8">
+    <div class="col-md-12">
       <h1 class="page-header">CMS</h1>
       <?php
       if(isset($_GET['p_id'])) {
@@ -34,13 +34,13 @@
             <p class="lead">by <a href="../../user_posts.php?user=<?php echo $post_user ?>&p_id=<?php echo $post_id ?>"><?php echo $post_user ?></a></p>
             <p><span class="glyphicon glyphicon-time"></span><?php echo $post_date ?></p>
             <hr>
-            <img class="img-responsive" src="images/<?php echo $post_image;?>" alt="">
+            <img class="img-fluid" src="images/<?php echo $post_image;?>" alt="">
             <hr>
             <div data-controller="markdown">
                 <textarea data-target="markdown.content" style="display: none">
                   <?php echo $post_content; ?>
                 </textarea>
-              <div data-target="markdown.output"></div>
+              <div class="markdown-view" data-target="markdown.output"></div>
             </div>
             <hr>
             <?php
