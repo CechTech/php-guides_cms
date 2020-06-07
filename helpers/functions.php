@@ -4,7 +4,7 @@ function is_admin() {
 
   $query = "SELECT role FROM users WHERE username = '$username'";
   $result = mysqli_query($query);
-  confirmQuery($result);
+  confirm_query($result);
 
   $row = mysqli_fetch_array($result);
 

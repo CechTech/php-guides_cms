@@ -17,7 +17,7 @@
             </div>
 
             <div class="col-xs-9 text-right">
-              <div class='huge'><?php echo $post_count = recordCount('posts'); ?></div>
+              <div class='huge'><?php echo $post_count = record_count('posts'); ?></div>
               <div>Posts</div>
             </div>
           </div>
@@ -42,7 +42,7 @@
             </div>
 
             <div class="col-xs-9 text-right">
-              <div class='huge'><?php echo $comment_count = recordCount('comments'); ?></div>
+              <div class='huge'><?php echo $comment_count = record_count('comments'); ?></div>
               <div>Comments</div>
             </div>
           </div>
@@ -67,7 +67,7 @@
             </div>
 
             <div class="col-xs-9 text-right">
-              <div class='huge'><?php echo $user_count = recordCount('users'); ?></div>
+              <div class='huge'><?php echo $user_count = record_count('users'); ?></div>
               <div> Users</div>
             </div>
           </div>
@@ -92,7 +92,7 @@
             </div>
 
             <div class="col-xs-9 text-right">
-              <div class='huge'><?php echo $category_count = recordCount('categories'); ?></div>
+              <div class='huge'><?php echo $category_count = record_count('categories'); ?></div>
               <div>Categories</div>
             </div>
           </div>
@@ -109,10 +109,10 @@
     </div>
   </div>
   <?php
-  $post_published_counts = checkStatus('posts', 'post_status', 'published');
-  $post_draft_counts = checkStatus('posts', 'post_status', 'draft');
-  $unapproved_comment_count = checkStatus('comments', 'comment_status', 'unapproved');
-  $subscriber_count = checkStatus('users', 'role', 'subscriber');
+  $post_published_counts = check_status('posts', 'post_status', 'published');
+  $post_draft_counts = check_status('posts', 'post_status', 'draft');
+  $unapproved_comment_count = check_status('comments', 'comment_status', 'unapproved');
+  $subscriber_count = check_status('users', 'role', 'subscriber');
   ?>
   <div class="row">
     <script type="text/javascript">

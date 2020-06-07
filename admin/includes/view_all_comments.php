@@ -37,7 +37,7 @@
 		    <?php
   				$query = "SELECT * FROM comments";
   				$select_comments = mysqli_query($connection, $query);
-  				confirmQuery($select_comments);
+  				confirm_query($select_comments);
 
   				while($row = mysqli_fetch_assoc($select_comments)) {
   					$comment_id = $row ['comment_id'];
@@ -58,7 +58,7 @@
 
   						$query = "SELECT * FROM posts WHERE post_id = '{$comment_post_id}'";
   						$select_post_id_query = mysqli_query($connection, $query);
-  						confirmQuery($select_post_id_query);
+  						confirm_query($select_post_id_query);
 
   						while($row = mysqli_fetch_assoc($select_post_id_query)) {
   							$post_id = $row ['post_id'];
@@ -78,7 +78,7 @@
   					$query = "UPDATE comments SET comment_status = 'approved' WHERE comment_id = '$approve_comment_id'";
 
   					$approve_comment_query = mysqli_query($connection, $query);
-  					confirmQuery($approve_comment_query);
+  					confirm_query($approve_comment_query);
 
   					header("Location: comments.php");
   				}
@@ -88,7 +88,7 @@
   					$query = "UPDATE comments SET comment_status = 'unapproved' WHERE comment_id = '$unapprove_comment_id'";
 
   					$unapprove_comment_query = mysqli_query($connection, $query);
-  					confirmQuery($unapprove_comment_query);
+  					confirm_query($unapprove_comment_query);
 
   					header("Location: comments.php");
   				}
@@ -98,7 +98,7 @@
   					$query = "DELETE FROM comments WHERE comment_id = '$delete_comment_id'";
 
   					$delete_query = mysqli_query($connection, $query);
-  					confirmQuery($delete_query);
+  					confirm_query($delete_query);
 
   					header("Location: comments.php");
   				}

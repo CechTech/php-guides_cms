@@ -10,7 +10,7 @@
       <?php
       $query = "SELECT * FROM categories";
       $category_menu = mysqli_query($connection, $query);
-      confirmQuery($category_menu);
+      confirm_query($category_menu);
 
       while ($row = mysqli_fetch_assoc($category_menu)) {
         $cat_title = $row['cat_title'];

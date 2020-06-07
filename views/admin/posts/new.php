@@ -16,7 +16,7 @@ if(isset($_POST['create_post'])) {
   $query .= "VALUES('{$post_title}', '{$post_category_id}', '{$post_user}', '{$post_status}', '{$post_image}', '{$post_tags}', '{$post_content}', now())";
 
   $create_post_query = mysqli_query($connection, $query);
-  confirmQuery($create_post_query);
+  confirm_query($create_post_query);
   $the_post_id = mysqli_insert_id($connection);
 
   echo "<p class='bg-success'>Post Created<br><a href='../post.php?p_id={$the_post_id}'>View Post</a> or <a href='posts.php'>Edit More Posts</a></p>";
@@ -39,7 +39,7 @@ if(isset($_POST['create_post'])) {
           <?php
           $query = "SELECT * FROM categories";
           $select_categories = mysqli_query($connection, $query);
-          confirmQuery($select_categories);
+          confirm_query($select_categories);
 
           while($row = mysqli_fetch_assoc($select_categories)) {
             $cat_id = $row ['cat_id'];
@@ -57,7 +57,7 @@ if(isset($_POST['create_post'])) {
           <?php
           $users_query = "SELECT * FROM users";
           $select_users = mysqli_query($connection, $users_query);
-          confirmQuery($select_users);
+          confirm_query($select_users);
 
           while($row = mysqli_fetch_assoc($select_users)) {
             $id = $row ['id'];

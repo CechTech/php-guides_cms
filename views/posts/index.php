@@ -10,7 +10,7 @@
       }
 
       $find_count = mysqli_query($connection, $post_query_count);
-      confirmQuery($find_count);
+      confirm_query($find_count);
 
       $per_page = 5;
       $count = mysqli_num_rows($find_count);
@@ -40,7 +40,7 @@
       }
 
       $result = mysqli_query($connection, $query);
-      confirmQuery($result);
+      confirm_query($result);
 
       while($row = mysqli_fetch_assoc($result)) {
         $post_id = $row ['post_id'];

@@ -34,8 +34,8 @@
 
         <tbody>
         <?php
-        showAllCategories();
-        deleteCategories();
+        show_all_categories();
+        delete_categories();
         ?>
         </tbody>
       </table>

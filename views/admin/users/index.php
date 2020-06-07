@@ -28,7 +28,7 @@ if(!is_admin($_SESSION['username'])) {
         <?php
         $query = "SELECT * FROM users";
         $select_users = mysqli_query($connection, $query);
-        confirmQuery($select_users);
+        confirm_query($select_users);
 
         while($row = mysqli_fetch_assoc($select_users)) {
           $id = $row ['id'];
@@ -59,7 +59,7 @@ if(!is_admin($_SESSION['username'])) {
           $query = "UPDATE users SET role = 'admin' WHERE id = '{$admin_id}'";
 
           $change_to_admin_query = mysqli_query($connection, $query);
-          confirmQuery($change_to_admin_query);
+          confirm_query($change_to_admin_query);
 
           header("Location: users.php");
         }
@@ -69,7 +69,7 @@ if(!is_admin($_SESSION['username'])) {
           $query = "UPDATE users SET role = 'subscriber' WHERE id = '{$sub_id}'";
 
           $change_to_sub_query = mysqli_query($connection, $query);
-          confirmQuery($change_to_sub_query);
+          confirm_query($change_to_sub_query);
 
           header("Location: users.php");
         }
@@ -81,7 +81,7 @@ if(!is_admin($_SESSION['username'])) {
               $query = "DELETE FROM users WHERE id = '$delete_id'";
 
               $delete_user_query = mysqli_query($connection, $query);
-              confirmQuery($delete_user_query);
+              confirm_query($delete_user_query);
 
               header("Location: users.php");
             }

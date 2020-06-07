@@ -7,7 +7,7 @@
         $search = escape($_POST['search']);
         $query = "SELECT * FROM posts WHERE post_tags LIKE '%$search%' ";
         $search_query = mysqli_query($connection, $query);
-        confirmQuery($search_query);
+        confirm_query($search_query);
 
         $count = mysqli_num_rows($search_query);
 

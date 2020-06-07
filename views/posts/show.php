@@ -8,7 +8,7 @@
 
         $view_query = "UPDATE posts SET post_view_count = post_view_count + 1 WHERE post_id = '{$the_post_id}'";
         $send_query = mysqli_query($connection, $view_query);
-        confirmQuery($send_query);
+        confirm_query($send_query);
 
         if(isset($_SESSION['role']) &&  $_SESSION['role'] == 'admin') {
           $query = "SELECT * FROM posts WHERE post_id = '{$the_post_id}'";
@@ -17,7 +17,7 @@
         }
 
         $view_post_query = mysqli_query($connection, $query);
-        confirmQuery($view_post_query);
+        confirm_query($view_post_query);
 
         if(mysqli_num_rows($view_post_query) < 1) {
           echo "<h2 class='text-center'>The post is unavailable</h2>";
@@ -56,7 +56,7 @@
               $query = "INSERT INTO comments(comment_post_id, comment_author, comment_email, comment_content, comment_status, comment_date) ";
               $query .= "VALUES('{$the_post_id}', '{$comment_author}', '{$comment_email}', '{$comment_content}', 'unapproved', now())";
               $create_comment_query = mysqli_query($connection, $query);
-              confirmQuery($create_comment_query);
+              confirm_query($create_comment_query);
 
               echo "<p>Comment sent for approval</p>";
             } else {
@@ -90,7 +90,7 @@
           $query .= "AND comment_status = 'approved' ";
           $query .= "ORDER BY comment_id DESC";
           $view_all_post_comments = mysqli_query($connection, $query);
-          confirmQuery($view_all_post_comments);
+          confirm_query($view_all_post_comments);
 
           while($row = mysqli_fetch_assoc($view_all_post_comments)) {
             $comment_author = $row['comment_author'];

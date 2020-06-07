@@ -8,7 +8,7 @@ if(isset($_GET['edit_user'])) {
   $query = "SELECT * FROM users WHERE id = '$edit_id'";
 
   $select_users_query = mysqli_query($connection, $query);
-  confirmQuery($select_users_query);
+  confirm_query($select_users_query);
 
   while($row = mysqli_fetch_assoc($select_users_query)) {
     $id = $row ['id'];
@@ -33,7 +33,7 @@ if(isset($_GET['edit_user'])) {
       $query_password = "SELECT password FROM users WHERE id = $edit_id";
 
       $get_user_query = mysqli_query($connection, $query_password);
-      confirmQuery($get_user_query);
+      confirm_query($get_user_query);
 
       $row = mysqli_fetch_assoc($get_user_query);
       $db_password = $row['password'];
@@ -49,7 +49,7 @@ if(isset($_GET['edit_user'])) {
       $query .= "WHERE id = '{$edit_id}'";
 
       $update_user_query = mysqli_query($connection, $query);
-      confirmQuery($update_user_query);
+      confirm_query($update_user_query);
 
       echo "<p class='bg-success'>User Updated<br><a href='users.php'>View All Users</a></p>";
     }

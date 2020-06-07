@@ -30,7 +30,7 @@
         $query .= "ORDER BY post_id DESC";
 
         $select_posts = mysqli_query($connection, $query);
-        confirmQuery($select_posts);
+        confirm_query($select_posts);
 
         while($row = mysqli_fetch_assoc($select_posts)) {
           $post_id = $row ['post_id'];
@@ -61,7 +61,7 @@
 
           $query = "SELECT * FROM comments WHERE comment_post_id = $post_id";
           $send_comment_query = mysqli_query($connection, $query);
-          confirmQuery($send_comment_query);
+          confirm_query($send_comment_query);
 
           $row = mysqli_fetch_assoc($send_comment_query);
           $count_comments = mysqli_num_rows($send_comment_query);
@@ -81,7 +81,7 @@
           $query = "DELETE FROM posts WHERE post_id = '$delete_post_id'";
 
           $delete_query = mysqli_query($connection, $query);
-          confirmQuery($delete_query);
+          confirm_query($delete_query);
 
           header("Location: posts.php");
         }
@@ -91,7 +91,7 @@
 
           $query = "UPDATE posts SET post_view_count = 0 WHERE post_id = '$reset_post_views'";
           $reset_query = mysqli_query($connection, $query);
-          confirmQuery($reset_query);
+          confirm_query($reset_query);
 
           header("Location: posts.php");
         }

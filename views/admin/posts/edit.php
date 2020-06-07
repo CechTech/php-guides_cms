@@ -4,7 +4,7 @@ if(isset($_GET['p_id'])) {
   $query = "SELECT * FROM posts WHERE post_id = '$the_post_id'";
 
   $select_posts_by_id = mysqli_query($connection, $query);
-  confirmQuery($select_posts_by_id);
+  confirm_query($select_posts_by_id);
 
   while($row = mysqli_fetch_assoc($select_posts_by_id)) {
     $post_id = $row ['post_id'];
@@ -35,7 +35,7 @@ if(isset($_GET['p_id'])) {
       $query = "SELECT * FROM posts WHERE post_id = '{$the_post_id}'";
 
       $select_image = mysqli_query($connection, $query);
-      confirmQuery($select_image);
+      confirm_query($select_image);
 
       while($row = mysqli_fetch_assoc($select_image)) {
         $post_image = $row ['post_image'];
@@ -54,7 +54,7 @@ if(isset($_GET['p_id'])) {
     $query .= "WHERE post_id = '{$the_post_id}'";
 
     $update_query = mysqli_query($connection, $query);
-    confirmQuery($update_query);
+    confirm_query($update_query);
 
     echo "<p class='bg-success'>Post Updated<br><a href='../post.php?p_id={$the_post_id}'>View Post</a> or <a href='posts.php'>Edit More Posts</a></p>";
   }
@@ -78,7 +78,7 @@ if(isset($_GET['p_id'])) {
           $query = "SELECT * FROM categories";
 
           $select_categories = mysqli_query($connection, $query);
-          confirmQuery($select_categories);
+          confirm_query($select_categories);
 
           while($row = mysqli_fetch_assoc($select_categories)) {
             $cat_id = $row ['cat_id'];
@@ -102,7 +102,7 @@ if(isset($_GET['p_id'])) {
           $users_query = "SELECT * FROM users";
 
           $select_users = mysqli_query($connection, $users_query);
-          confirmQuery($select_users);
+          confirm_query($select_users);
 
           while($row = mysqli_fetch_assoc($select_users)) {
             $id = $row ['id'];

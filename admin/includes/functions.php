@@ -25,7 +25,7 @@ function is_method($method = null){
 	return false;
 }
 
-function confirmQuery($result) {
+function confirm_query($result) {
 	global $connection;
 
 	if(!$result) {
@@ -51,17 +51,17 @@ function insert_categories() {
 			$query = "INSERT INTO categories(cat_title) ";
 			$query .= "VALUE('{$cat_title}') ";
 			$create_category_query = mysqli_query($connection, $query);
-			confirmQuery($create_category_query);
+			confirm_query($create_category_query);
 		}
 	}
 }
 
-function showAllCategories() {
+function show_all_categories() {
 	global $connection;
 
 	$query = "SELECT * FROM categories";
 	$select_categories = mysqli_query($connection, $query);
-	confirmQuery($select_categories);
+	confirm_query($select_categories);
 
 	while($row = mysqli_fetch_assoc($select_categories)) {
 		$cat_id = $row['cat_id'];
@@ -75,34 +75,36 @@ function showAllCategories() {
 	}
 }
 
-function deleteCategories() {
+function delete_categories() {
 	global $connection;
 
 	if(isset($_GET['delete'])) {
 		$cat_id_delete = escape($_GET['delete']);
 		$query = "DELETE FROM categories WHERE cat_id = '{$cat_id_delete}'";
 		$delete_query = mysqli_query($connection, $query);
-		confirmQuery($delete_query);
+		confirm_query($delete_query);
 
 		header("Location: categories.php");
 	}
 }
 
-function recordCount($table) {
+function record_count($table) {
 	global $connection;
 
 	$query = "SELECT * FROM " . $table;
 	$record_count = mysqli_query($connection, $query);
-	confirmQuery($record_count);
+	confirm_query($record_count);
+
 	return mysqli_num_rows($record_count);
 }
 
-function checkStatus($table, $column, $status) {
+function check_status($table, $column, $status) {
 	global $connection;
 
 	$query = "SELECT * FROM $table WHERE $column = '$status'";
 	$result = mysqli_query($connection, $query);
-	confirmQuery($result);
+	confirm_query($result);
+
 	return mysqli_num_rows($result);
 }
 
@@ -111,7 +113,7 @@ function is_admin($username = '') {
 
 	$query = "SELECT role FROM users WHERE username = '$username'";
 	$result = mysqli_query($connection, $query);
-	confirmQuery($result);
+	confirm_query($result);
 
 	$row = mysqli_fetch_array($result);
 
@@ -127,7 +129,7 @@ function username_exists($username) {
 
 	$query = "SELECT username FROM users WHERE username = '$username'";
 	$result = mysqli_query($connection, $query);
-	confirmQuery($result);
+	confirm_query($result);
 
 	if(mysqli_num_rows($result) > 0) {
 		return true;
@@ -141,7 +143,7 @@ function email_exists($email){
 
 	$query = "SELECT email FROM users WHERE email = '$email'";
 	$result = mysqli_query($connection, $query);
-	confirmQuery($result);
+	confirm_query($result);
 
 	if(mysqli_num_rows($result) > 0) {
 		return true;
@@ -156,13 +158,13 @@ function register_user($username, $email, $password){
 	$username = escape($username);
 	$email = escape($email);
 
-	$password = password_hash($password, PASSWORD_DEFAULT, ['cost' => 12]);
+	$password = password_hash($password, PASSWORD_BCRYPT, ['cost' => 12]);
 
 	$query = "INSERT INTO users (username, email, password, role) ";
 	$query .= "VALUES('{$username}','{$email}', '{$password}', 'subscriber' )";
 	$register_user_query = mysqli_query($connection, $query);
 
-	confirmQuery($register_user_query);
+	confirm_query($register_user_query);
 }
 
 function login_user($username, $password) {
