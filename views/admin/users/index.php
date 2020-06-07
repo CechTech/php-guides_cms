@@ -1,4 +1,9 @@
 <?php checkBoxesUsers(); ?>
+<?php
+if(!is_admin($_SESSION['username'])) {
+  header("Location: index.php");
+}
+?>
 <div class="container">
   <h1 class="page-header">Users</h1>
 

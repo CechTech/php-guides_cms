@@ -1,4 +1,8 @@
 <?php
+if(!is_admin($_SESSION['username'])) {
+  header("Location: index.php");
+}
+
 if(isset($_POST['create_user'])) {
   $user_firstname = ucfirst(escape($_POST['user_firstname']));
   $user_lastname = ucfirst(escape($_POST['user_lastname']));

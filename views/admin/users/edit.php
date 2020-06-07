@@ -1,4 +1,8 @@
 <?php
+if(!is_admin($_SESSION['username'])) {
+  header("Location: index.php");
+}
+
 if(isset($_GET['edit_user'])) {
   $edit_user_id = $_GET['edit_user'];
   $query = "SELECT * FROM users WHERE user_id = '$edit_user_id'";
