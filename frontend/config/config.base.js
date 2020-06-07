@@ -8,7 +8,7 @@ module.exports = {
 
   output: {
     filename: "[name].js",
-    path: path.resolve("../../build", "public")
+    path: path.resolve("./build", "public")
   },
 
   mode: "production",
