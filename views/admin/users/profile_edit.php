@@ -1,38 +1,43 @@
 <?php
-if(isset($_SESSION['username'])) {
-  $username = $_SESSION['username'];
-  $query = "SELECT * FROM users WHERE username = '{$username}'";
+if(isset($_SESSION['id'])) {
+  $id = $_SESSION['id'];
+  $query = "SELECT * FROM users WHERE id = '{$id}'";
   $select_user_profile_query = mysqli_query($connection, $query);
 
+  confirm_query($select_user_profile_query);
+
   while($row = mysqli_fetch_assoc($select_user_profile_query)) {
-    $id = $row ['id'];
-    $username = $row ['username'];
-    $password = $row ['password'];
-    $firstname = $row ['firstname'];
-    $lastname = $row ['lastname'];
-    $email = $row ['email'];
-    $image = $row ['image'];
-    $role = $row ['role'];
-    $user_rand_salt = $row ['user_rand_salt'];
+    $username = $row['username'];
+    $password = $row['password'];
+    $firstname = $row['firstname'];
+    $lastname = $row['lastname'];
+    $email = $row['email'];
+    $image = $row['image'];
   }
 }
 
 if(isset($_POST['edit_user'])) {
-  $firstname = $_POST['firstname'];
-  $lastname = $_POST['lastname'];
-  $role = $_POST['role'];
-  $username = $_POST['username'];
-  $email = $_POST['email'];
+  $id = escape($_POST['id']);
+  $firstname = escape($_POST['firstname']);
+  $lastname = escape($_POST['lastname']);
+  $username = escape($_POST['username']);
+  $email = escape($_POST['email']);
   $password = $_POST['password'];
 
   $query = "UPDATE users SET ";
   $query .= "firstname = '{$firstname}', ";
   $query .= "lastname = '{$lastname}', ";
-  $query .= "role = '{$role}', ";
   $query .= "username = '{$username}', ";
-  $query .= "email = '{$email}', ";
-  $query .= "password = '{$password}' ";
-  $query .= "WHERE username = '{$username}'";
+  $query .= "email = '{$email}' ";
+
+  if(strlen($password > 0)) {
+    $password = $_POST['password'];
+    $password = password_hash($password, PASSWORD_BCRYPT, ['cost' => 12]);
+
+    $query .= ", password = '{$password}' ";
+  }
+
+  $query .= "WHERE id = '{$id}'";
 
   $update_user_query = mysqli_query($connection, $query);
   confirm_query($update_user_query);
@@ -52,20 +57,6 @@ if(isset($_POST['edit_user'])) {
     </div>
 
     <div class="form-group">
-      <label for="role">Role</label>
-      <select name="role" class="form-control" id="role">
-        <option value="admin"><?php echo $role; ?></option>
-        <?php
-        if($role == 'admin') {
-          echo "<option value='subscriber'>subscriber</option>";
-        } else {
-          echo "<option value='admin'>admin</option>";
-        }
-        ?>
-      </select>
-    </div>
-
-    <div class="form-group">
       <label for="username">Username</label>
       <input type="text" class="form-control" id="username" value="<?php echo $username; ?>" name="username">
     </div>
@@ -77,7 +68,12 @@ if(isset($_POST['edit_user'])) {
 
     <div class="form-group">
       <label for="password">Password</label>
-      <input type="password" class="form-control" id="password" value="<?php echo $password; ?>" name="password">
+      <input type="password" class="form-control" id="password" name="password" placeholder="Leave blank if you don't want to change it">
+    </div>
+
+    <div style="display: none">
+      <label for="id">ID</label>
+      <input type="text" id="id" name="id" value="<?php echo $id; ?>">
     </div>
 
     <div class="form-group">

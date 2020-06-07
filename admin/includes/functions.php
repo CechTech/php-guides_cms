@@ -18,7 +18,7 @@ function is_logged_in_and_redirect($location = null) {
 	}
 }
 
-function is_method($method = null){
+function is_method($method = null) {
 	if($_SERVER['REQUEST_METHOD'] == strtoupper($method)){
 		return true;
 	}
@@ -180,6 +180,7 @@ function login_user($username, $password) {
 	}
 
 	while ($row = mysqli_fetch_array($select_user_query)) {
+		$db_id = $row['id'];
 		$db_username = $row['username'];
 		$db_password = $row['password'];
 		$db_firstname = $row['firstname'];
@@ -187,6 +188,7 @@ function login_user($username, $password) {
 		$db_role = $row['role'];
 
 		if (password_verify($password, $db_password)) {
+			$_SESSION['id'] = $db_id;
 			$_SESSION['username'] = $db_username;
 			$_SESSION['firstname'] = $db_firstname;
 			$_SESSION['lastname'] = $db_lastname;
