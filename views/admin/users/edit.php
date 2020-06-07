@@ -4,49 +4,49 @@ if(!is_admin($_SESSION['username'])) {
 }
 
 if(isset($_GET['edit_user'])) {
-  $edit_user_id = $_GET['edit_user'];
-  $query = "SELECT * FROM users WHERE user_id = '$edit_user_id'";
+  $edit_id = $_GET['edit_user'];
+  $query = "SELECT * FROM users WHERE id = '$edit_id'";
 
   $select_users_query = mysqli_query($connection, $query);
   confirmQuery($select_users_query);
 
   while($row = mysqli_fetch_assoc($select_users_query)) {
-    $user_id = $row ['user_id'];
-    $user_name = $row ['user_name'];
-    $user_password = $row ['user_password'];
-    $user_firstname = $row ['user_firstname'];
-    $user_lastname = $row ['user_lastname'];
-    $user_email = $row ['user_email'];
-    $user_image = $row ['user_image'];
-    $user_role = $row ['user_role'];
+    $id = $row ['id'];
+    $username = $row ['username'];
+    $password = $row ['password'];
+    $firstname = $row ['firstname'];
+    $lastname = $row ['lastname'];
+    $email = $row ['email'];
+    $image = $row ['image'];
+    $role = $row ['role'];
   }
 
   if(isset($_POST['edit_user'])) {
-    $user_firstname = ucfirst(escape($_POST['user_firstname']));
-    $user_lastname = ucfirst(escape($_POST['user_lastname']));
-    $user_role = escape($_POST['user_role']);
-    $user_name = ucfirst(escape($_POST['user_name']));
-    $user_email = escape($_POST['user_email']);
-    $user_password = escape($_POST['user_password']);
+    $firstname = ucfirst(escape($_POST['firstname']));
+    $lastname = ucfirst(escape($_POST['lastname']));
+    $role = escape($_POST['role']);
+    $username = ucfirst(escape($_POST['username']));
+    $email = escape($_POST['email']);
+    $password = escape($_POST['password']);
 
-    if(!empty($user_password)) {
-      $query_password = "SELECT user_password FROM users WHERE user_id = $edit_user_id";
+    if(!empty($password)) {
+      $query_password = "SELECT password FROM users WHERE id = $edit_id";
 
       $get_user_query = mysqli_query($connection, $query_password);
       confirmQuery($get_user_query);
 
       $row = mysqli_fetch_assoc($get_user_query);
-      $db_user_password = $row['user_password'];
-      $hashed_password = password_hash($user_password, PASSWORD_BCRYPT, array('cost' => 10));
+      $db_password = $row['password'];
+      $hashed_password = password_hash($password, PASSWORD_BCRYPT, array('cost' => 10));
 
       $query = "UPDATE users SET ";
-      $query .= "user_firstname = '{$user_firstname}', ";
-      $query .= "user_lastname = '{$user_lastname}', ";
-      $query .= "user_role = '{$user_role}', ";
-      $query .= "user_name = '{$user_name}', ";
-      $query .= "user_email = '{$user_email}', ";
-      $query .= "user_password = '{$hashed_password}' ";
-      $query .= "WHERE user_id = '{$edit_user_id}'";
+      $query .= "firstname = '{$firstname}', ";
+      $query .= "lastname = '{$lastname}', ";
+      $query .= "role = '{$role}', ";
+      $query .= "username = '{$username}', ";
+      $query .= "email = '{$email}', ";
+      $query .= "password = '{$hashed_password}' ";
+      $query .= "WHERE id = '{$edit_id}'";
 
       $update_user_query = mysqli_query($connection, $query);
       confirmQuery($update_user_query);
@@ -60,25 +60,25 @@ if(isset($_GET['edit_user'])) {
 ?>
 
 <div class="container">
-  <h1 class="page-header">Edit User <?php echo $user_name; ?></h1>
+  <h1 class="page-header">Edit User <?php echo $username; ?></h1>
 
   <form method="post" enctype="multipart/form-data">
     <div class="form-group">
-      <label for="user_firstname">Firstname</label>
-      <input type="text" class="form-control" id="user_firstname" value="<?php echo $user_firstname; ?>" name="user_firstname">
+      <label for="firstname">Firstname</label>
+      <input type="text" class="form-control" id="firstname" value="<?php echo $firstname; ?>" name="firstname">
     </div>
 
     <div class="form-group">
-      <label for="user_lastname">Lastname</label>
-      <input type="text" class="form-control" id="user_lastname" value="<?php echo $user_lastname; ?>" name="user_lastname">
+      <label for="lastname">Lastname</label>
+      <input type="text" class="form-control" id="lastname" value="<?php echo $lastname; ?>" name="lastname">
     </div>
 
     <div class="form-group">
-      <label for="user_role">Role</label>
-      <select name="user_role" class="form-control" id="user_role">
-        <option value="<?php echo $user_role; ?>"><?php echo ucfirst($user_role); ?></option>
+      <label for="role">Role</label>
+      <select name="role" class="form-control" id="role">
+        <option value="<?php echo $role; ?>"><?php echo ucfirst($role); ?></option>
         <?php
-        if($user_role == 'admin') {
+        if($role == 'admin') {
           echo "<option value='subscriber'>Subscriber</option>";
         } else {
           echo "<option value='admin'>Admin</option>";
@@ -88,18 +88,18 @@ if(isset($_GET['edit_user'])) {
     </div>
 
     <div class="form-group">
-      <label for="user_name">Username</label>
-      <input type="text" class="form-control" id="user_name" value="<?php echo $user_name; ?>" name="user_name">
+      <label for="username">Username</label>
+      <input type="text" class="form-control" id="username" value="<?php echo $username; ?>" name="username">
     </div>
 
     <div class="form-group">
-      <label for="user_email">Email</label>
-      <input type="email" class="form-control" id="user_email" value="<?php echo $user_email; ?>" name="user_email">
+      <label for="email">Email</label>
+      <input type="email" class="form-control" id="email" value="<?php echo $email; ?>" name="email">
     </div>
 
     <div class="form-group">
-      <label for="user_password">Password</label>
-      <input type="password" class="form-control" id="user_password" value="<?php echo $user_password; ?>" name="user_password">
+      <label for="password">Password</label>
+      <input type="password" class="form-control" id="password" value="<?php echo $password; ?>" name="password">
     </div>
 
     <div class="form-group">

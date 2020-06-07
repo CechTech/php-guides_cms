@@ -107,22 +107,22 @@ INSERT INTO `posts` (`post_id`, `post_title`, `post_user`, `post_status`, `post_
 --
 
 CREATE TABLE `users` (
-  `user_id` int(5) NOT NULL,
-  `user_name` varchar(255) COLLATE utf8_bin NOT NULL,
-  `user_email` varchar(255) COLLATE utf8_bin NOT NULL,
-  `user_password` varchar(255) COLLATE utf8_bin NOT NULL,
-  `user_role` varchar(255) COLLATE utf8_bin NOT NULL,
-  `user_firstname` varchar(255) COLLATE utf8_bin NOT NULL,
-  `user_lastname` varchar(255) COLLATE utf8_bin NOT NULL,
-  `user_image` text COLLATE utf8_bin NOT NULL,
-  `randSalt` varchar(255) COLLATE utf8_bin NOT NULL
+  `id` int(5) NOT NULL,
+  `username` varchar(255) COLLATE utf8_bin NOT NULL,
+  `email` varchar(255) COLLATE utf8_bin NOT NULL,
+  `password` varchar(255) COLLATE utf8_bin NOT NULL,
+  `role` varchar(255) COLLATE utf8_bin NOT NULL,
+  `firstname` varchar(255) COLLATE utf8_bin NOT NULL,
+  `lastname` varchar(255) COLLATE utf8_bin NOT NULL,
+  `image` text COLLATE utf8_bin NOT NULL,
+  `rand_salt` varchar(255) COLLATE utf8_bin NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`user_id`, `user_name`, `user_email`, `user_password`, `user_role`, `user_firstname`, `user_lastname`, `user_image`, `randSalt`) VALUES
+INSERT INTO `users` (`id`, `username`, `email`, `password`, `role`, `firstname`, `lastname`, `image`, `rand_salt`) VALUES
 (1, 'Admin', 'admin@example.com', '$2y$10$3NcnMQf0T6ilKn6Olcplh.Fs.JrKCTwsUR7eli14IRWJ38wKEyN8.', 'admin', '', '', '', ''),
 (5, 'SpaceImages', 'spaceimages@example.com', '$2y$10$vgrIwZI1VktjuFgmyFsZWuh8xogBWBLv9ZsIrcj1jEwfLthA6y2iK', 'admin', '', '', '', ''),
 (7, 'CityImages', 'cityimages@example.com', '$2y$10$ueB4CucaajXU0ox2z39No.He2p0atsdImEtR2m1Vz/LQEMDWRm8Pm', 'admin', '', '', '', ''),
@@ -156,7 +156,7 @@ ALTER TABLE `posts`
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
-  ADD PRIMARY KEY (`user_id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -181,7 +181,7 @@ ALTER TABLE `posts`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 --
 -- Constraints for dumped tables
 --

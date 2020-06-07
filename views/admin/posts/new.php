@@ -60,9 +60,9 @@ if(isset($_POST['create_post'])) {
           confirmQuery($select_users);
 
           while($row = mysqli_fetch_assoc($select_users)) {
-            $user_id = $row ['user_id'];
-            $user_name = $row ['user_name'];
-            echo "<option value='{$user_name}'>{$user_name}</option>";
+            $id = $row ['id'];
+            $username = $row ['username'];
+            echo "<option value='{$username}'>{$username}</option>";
           }
           ?>
         </select>

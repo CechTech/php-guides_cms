@@ -1,4 +1,30 @@
 <?php
+
+function redirect($location) {
+	header("Location:" . $location);
+	exit;
+}
+
+function is_logged_in() {
+	if(isset($_SESSION['role'])) {
+		return true;
+	}
+	return false;
+}
+
+function is_logged_in_and_redirect($location = null) {
+	if(is_logged_in()) {
+		redirect($location);
+	}
+}
+
+function is_method($method = null){
+	if($_SERVER['REQUEST_METHOD'] == strtoupper($method)){
+		return true;
+	}
+	return false;
+}
+
 function confirmQuery($result) {
 	global $connection;
 
@@ -11,262 +37,6 @@ function escape($string) {
 	global $connection;
 
 	return mysqli_real_escape_string($connection, trim($string));
-}
-
-function checkBoxesCommentsByPost() {
-	global $connection;
-
-	if(isset($_POST['checkBoxArray'])) {
-		foreach($_POST['checkBoxArray'] as $commentValueId) {
-			$bulk_options = $_POST['bulk_options'];
-
-			switch($bulk_options) {
-				case 'approved':
-					$query = "UPDATE comments SET comment_status = '$bulk_options' WHERE comment_id = '$commentValueId'";
-					$update_to_approved_query = mysqli_query($connection, $query);
-					confirmQuery($update_to_approved_query);
-					break;
-
-				case 'unapproved':
-					$query = "UPDATE comments SET comment_status = '$bulk_options' WHERE comment_id = '$commentValueId'";
-					$update_to_draft_query = mysqli_query($connection, $query);
-					confirmQuery($update_to_draft_query);
-					break;
-
-				case 'duplicate':
-					$query = "SELECT * FROM comments WHERE comment_id = '$commentValueId'";
-					$select_comment_query = mysqli_query($connection, $query);
-					confirmQuery($select_comment_query);
-
-					while($row = mysqli_fetch_assoc($select_comment_query)) {
-						$comment_id = $row ['comment_id'];
-						$comment_post_id = $row ['comment_post_id'];
-						$comment_author = $row ['comment_author'];
-						$comment_content = $row ['comment_content'];
-						$comment_email = $row ['comment_email'];
-						$comment_status = $row ['comment_status'];
-						$comment_date = $row ['comment_date'];
-					}
-					$query = "INSERT INTO comments(comment_post_id, comment_author, comment_content, comment_email, comment_status, comment_date) ";
-					$query .= "VALUES('$comment_post_id', '$comment_author', '$comment_content', '$comment_email', '$comment_status', '$comment_date')";
-					$duplicate_multiple_query = mysqli_query($connection, $query);
-					confirmQuery($duplicate_multiple_query);
-
-					header("Location: post_comments.php?id=$comment_post_id");
-					break;
-
-				case 'delete':
-					$query = "SELECT comment_post_id FROM comments WHERE comment_id = '$commentValueId'";
-					$select_comment_query = mysqli_query($connection, $query);
-					confirmQuery($select_comment_query);
-
-					while($row = mysqli_fetch_assoc($select_comment_query)) {
-						$comment_post_id = $row ['comment_post_id'];
-					}
-					$query = "DELETE FROM comments WHERE comment_id = '$commentValueId'";
-					$delete_multiple_query = mysqli_query($connection, $query);
-					confirmQuery($delete_multiple_query);
-
-					header("Location: post_comments.php?id=$comment_post_id");
-					break;
-			}
-		}
-	}
-}
-
-function checkBoxesComments() {
-	global $connection;
-
-	if(isset($_POST['checkBoxArray'])) {
-		foreach($_POST['checkBoxArray'] as $commentValueId) {
-			$bulk_options = $_POST['bulk_options'];
-
-			switch($bulk_options) {
-				case 'approved':
-					$query = "UPDATE comments SET comment_status = '$bulk_options' WHERE comment_id = '$commentValueId'";
-					$update_to_approved_query = mysqli_query($connection, $query);
-					confirmQuery($update_to_approved_query);
-					break;
-
-				case 'unapproved':
-					$query = "UPDATE comments SET comment_status = '$bulk_options' WHERE comment_id = '$commentValueId'";
-					$update_to_draft_query = mysqli_query($connection, $query);
-					confirmQuery($update_to_draft_query);
-					break;
-
-				case 'duplicate':
-					$query = "SELECT * FROM comments WHERE comment_id = '$commentValueId'";
-					$select_comment_query = mysqli_query($connection, $query);
-					confirmQuery($select_comment_query);
-
-					while($row = mysqli_fetch_assoc($select_comment_query)) {
-						$comment_id = $row ['comment_id'];
-						$comment_post_id = $row ['comment_post_id'];
-						$comment_author = $row ['comment_author'];
-						$comment_content = $row ['comment_content'];
-						$comment_email = $row ['comment_email'];
-						$comment_status = $row ['comment_status'];
-						$comment_date = $row ['comment_date'];
-					}
-					$query = "INSERT INTO comments(comment_post_id, comment_author, comment_content, comment_email, comment_status, comment_date) ";
-					$query .= "VALUES('$comment_post_id', '$comment_author', '$comment_content', '$comment_email', '$comment_status', '$comment_date')";
-					$duplicate_multiple_query = mysqli_query($connection, $query);
-					confirmQuery($duplicate_multiple_query);
-
-					header("Location: comments.php");
-					break;
-
-				case 'delete':
-					$query = "DELETE FROM comments WHERE comment_id = '$commentValueId'";
-					$delete_multiple_query = mysqli_query($connection, $query);
-					confirmQuery($delete_multiple_query);
-
-					header("Location: comments.php");
-					break;
-			}
-		}
-	}
-}
-
-function checkBoxesCategories() {
-	global $connection;
-
-	if(isset($_POST['checkBoxArray'])) {
-		foreach($_POST['checkBoxArray'] as $categoryValueId) {
-			$bulk_options = $_POST['bulk_options'];
-
-			switch($bulk_options) {
-				case 'duplicate':
-					$query = "SELECT * FROM categories WHERE cat_id= '{$categoryValueId}'";
-					$select_category_query = mysqli_query($connection, $query);
-					confirmQuery($select_category_query);
-
-					while($row = mysqli_fetch_assoc($select_category_query)) {
-						$cat_id = $row['cat_id'];
-						$cat_title = $row['cat_title'];
-					}
-					$query = "INSERT INTO categories(cat_title) ";
-					$query .= "VALUES('{$cat_title}')";
-					$duplicate_multiple_query = mysqli_query($connection, $query);
-					confirmQuery($duplicate_multiple_query);
-
-					header("Location: categories.php");
-					break;
-
-				case 'delete':
-					$query = "DELETE FROM categories WHERE cat_id = '{$categoryValueId}'";
-					$delete_multiple_query = mysqli_query($connection, $query);
-					confirmQuery($delete_multiple_query);
-
-					header("Location: categories.php");
-					break;
-			}
-		}
-	}
-}
-
-function checkBoxesUsers() {
-	global $connection;
-
-	if(isset($_POST['checkBoxArray'])) {
-		foreach($_POST['checkBoxArray'] as $userValueId) {
-			$bulk_options = $_POST['bulk_options'];
-
-			switch($bulk_options) {
-				case 'admin':
-					$query = "UPDATE users SET user_role = '{$bulk_options}' WHERE user_id = '{$userValueId}'";
-					$update_to_admin_query = mysqli_query($connection, $query);
-					confirmQuery($update_to_admin_query);
-					break;
-
-				case 'subscriber':
-					$query = "UPDATE users SET user_role = '{$bulk_options}' WHERE user_id = '{$userValueId}'";
-					$update_to_subsscriber_query = mysqli_query($connection, $query);
-					confirmQuery($update_to_subsscriber_query);
-					break;
-
-				case 'duplicate':
-					$query = "SELECT * FROM users WHERE user_id= '{$userValueId}'";
-					$select_user_query = mysqli_query($connection, $query);
-					confirmQuery($select_user_query);
-
-					while($row = mysqli_fetch_assoc($select_user_query)) {
-						$user_name = $row ['user_name'];
-						$user_password = $row ['user_password'];
-						$user_firstname = $row ['user_firstname'];
-						$user_lastname = $row ['user_lastname'];
-						$user_email = $row ['user_email'];
-						$user_image = $row ['user_image'];
-						$user_role = $row ['user_role'];
-					}
-					$query = "INSERT INTO users(user_name, user_password, user_firstname, user_lastname, user_email, user_role) ";
-					$query .= "VALUES('{$user_name}', '{$user_password}', '{$user_firstname}', '{$user_lastname}', '{$user_email}', '{$user_role}')";
-					$duplicate_multiple_query = mysqli_query($connection, $query);
-					confirmQuery($duplicate_multiple_query);
-					break;
-
-				case 'delete':
-					$query = "DELETE FROM users WHERE user_id = '{$userValueId}'";
-					$delete_multiple_query = mysqli_query($connection, $query);
-					confirmQuery($delete_multiple_query);
-
-					header("Location: users.php");
-					break;
-			}
-		}
-	}
-}
-
-function checkBoxesPosts() {
-	global $connection;
-
-	if(isset($_POST['checkBoxArray'])) {
-		foreach($_POST['checkBoxArray'] as $postValueId) {
-			$bulk_options = $_POST['bulk_options'];
-
-			switch($bulk_options) {
-				case 'published':
-					$query = "UPDATE posts SET post_status = '{$bulk_options}' WHERE post_id = '{$postValueId}'";
-					$update_to_published_query = mysqli_query($connection, $query);
-					confirmQuery($update_to_published_query);
-					break;
-
-				case 'draft':
-					$query = "UPDATE posts SET post_status = '{$bulk_options}' WHERE post_id = '{$postValueId}'";
-					$update_to_draft_query = mysqli_query($connection, $query);
-					confirmQuery($update_to_draft_query);
-					break;
-
-				case 'duplicate':
-					$query = "SELECT * FROM posts WHERE post_id= '{$postValueId}'";
-					$select_post_query = mysqli_query($connection, $query);
-					confirmQuery($select_post_query);
-
-					while($row = mysqli_fetch_assoc($select_post_query)) {
-						$post_user = $row ['post_user'];
-						$post_title = $row ['post_title'];
-						$post_category_id = $row ['post_category_id'];
-						$post_status = $row ['post_status'];
-						$post_image = $row ['post_image'];
-						$post_tags = $row ['post_tags'];
-						$post_date = $row ['post_date'];
-					}
-					$query = "INSERT INTO posts(post_user, post_title, post_category_id, post_status, post_image, post_tags, post_date) ";
-					$query .= "VALUES('{$post_user}', '{$post_title}', '{$post_category_id}', '{$post_status}', '{$post_image}', '{$post_tags}', now())";
-					$duplicate_multiple_query = mysqli_query($connection, $query);
-					confirmQuery($duplicate_multiple_query);
-					break;
-
-				case 'delete':
-					$query = "DELETE FROM posts WHERE post_id = '{$postValueId}'";
-					$delete_multiple_query = mysqli_query($connection, $query);
-					confirmQuery($delete_multiple_query);
-
-					header("Location: posts.php");
-					break;
-			}
-		}
-	}
 }
 
 function insert_categories() {
@@ -337,19 +107,95 @@ function checkStatus($table, $column, $status) {
 	return mysqli_num_rows($result);
 }
 
-function is_admin($user_name = '') {
+function is_admin($username = '') {
 	global $connection;
 
-	$query = "SELECT user_role FROM users WHERE user_name = '$user_name'";
+	$query = "SELECT role FROM users WHERE username = '$username'";
 	$result = mysqli_query($connection, $query);
 	confirmQuery($result);
 
 	$row = mysqli_fetch_array($result);
 
-	if ($row['user_role'] == 'admin') {
+	if ($row['role'] == 'admin') {
 		return true;
 	} else {
 		return false;
 	}
+}
+
+function username_exists($username) {
+	global $connection;
+
+	$query = "SELECT username FROM users WHERE username = '$username'";
+	$result = mysqli_query($connection, $query);
+	confirmQuery($result);
+
+	if(mysqli_num_rows($result) > 0) {
+		return true;
+	} else {
+		return false;
+	}
+}
+
+function email_exists($email){
+	global $connection;
+
+	$query = "SELECT email FROM users WHERE email = '$email'";
+	$result = mysqli_query($connection, $query);
+	confirmQuery($result);
+
+	if(mysqli_num_rows($result) > 0) {
+		return true;
+	} else {
+		return false;
+	}
+}
+
+function register_user($username, $email, $password){
+	global $connection;
+
+	$username = escape($username);
+	$email = escape($email);
+
+	$password = password_hash($password, PASSWORD_DEFAULT, ['cost' => 12]);
+
+	$query = "INSERT INTO users (username, email, password, role) ";
+	$query .= "VALUES('{$username}','{$email}', '{$password}', 'subscriber' )";
+	$register_user_query = mysqli_query($connection, $query);
+
+	confirmQuery($register_user_query);
+}
+
+function login_user($username, $password) {
+	global $connection;
+
+	$username = escape($username);
+
+	$query = "SELECT * FROM users WHERE username = '{$username}' ";
+	$select_user_query = mysqli_query($connection, $query);
+
+	if (!$select_user_query) {
+		die("QUERY FAILED" . mysqli_error($connection));
+	}
+
+	while ($row = mysqli_fetch_array($select_user_query)) {
+		$db_username = $row['username'];
+		$db_password = $row['password'];
+		$db_firstname = $row['firstname'];
+		$db_lastname = $row['lastname'];
+		$db_role = $row['role'];
+
+		if (password_verify($password, $db_password)) {
+			$_SESSION['username'] = $db_username;
+			$_SESSION['firstname'] = $db_firstname;
+			$_SESSION['lastname'] = $db_lastname;
+			$_SESSION['role'] = $db_role;
+
+			redirect("/admin");
+		} else {
+			return false;
+		}
+	}
+	return true;
 }
 ?>

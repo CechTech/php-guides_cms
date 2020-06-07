@@ -112,7 +112,7 @@
   $post_published_counts = checkStatus('posts', 'post_status', 'published');
   $post_draft_counts = checkStatus('posts', 'post_status', 'draft');
   $unapproved_comment_count = checkStatus('comments', 'comment_status', 'unapproved');
-  $subscriber_count = checkStatus('users', 'user_role', 'subscriber');
+  $subscriber_count = checkStatus('users', 'role', 'subscriber');
   ?>
   <div class="row">
     <script type="text/javascript">

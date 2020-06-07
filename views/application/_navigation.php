@@ -35,6 +35,7 @@
         echo "<li class='nav-item $category_class'><a class='nav-link' href='category.php?category=$cat_id&page=1'>$cat_title</a></li>";
       }
       ?>
+
       <?php
       if (!isset($_SESSION['role'])) {
         echo "<li class='nav-item $registration_class'><a class='nav-link' href='registration.php'>Registration</a></li>";
@@ -52,8 +53,13 @@
           echo "<li class='nav-item'><a class='nav-link' href='admin/posts.php?source=edit_post&p_id={$the_post_id}'>Edit Post</a></li>";
         }
       }
+
+      if (!isset($_SESSION['role'])) {
+        echo "<li class='nav-item'><a class='nav-link' href='login.php'>Login</a></li>";
+      }
       ?>
     </ul>
+
     <form class="form-inline my-2 my-lg-0" action="search.php" method="post">
       <input class="form-control mr-sm-2" name="search" type="search" placeholder="Search" aria-label="Search">
       <button class="btn btn-outline-success my-2 my-sm-0" name="submit_search" type="submit">Search</button>

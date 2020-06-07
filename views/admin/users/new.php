@@ -4,16 +4,16 @@ if(!is_admin($_SESSION['username'])) {
 }
 
 if(isset($_POST['create_user'])) {
-  $user_firstname = ucfirst(escape($_POST['user_firstname']));
-  $user_lastname = ucfirst(escape($_POST['user_lastname']));
-  $user_role = escape($_POST['user_role']);
-  $user_name = ucfirst(escape($_POST['user_name']));
-  $user_email = escape($_POST['user_email']);
-  $user_password = escape($_POST['user_password']);
-  $user_password = password_hash($user_password, PASSWORD_BCRYPT, array('cost' => 10));
+  $firstname = ucfirst(escape($_POST['firstname']));
+  $lastname = ucfirst(escape($_POST['lastname']));
+  $role = escape($_POST['role']);
+  $username = ucfirst(escape($_POST['username']));
+  $email = escape($_POST['email']);
+  $password = escape($_POST['password']);
+  $password = password_hash($password, PASSWORD_BCRYPT, array('cost' => 10));
 
-  $query = "INSERT INTO users(user_firstname, user_lastname, user_role, user_name, user_email, user_password) ";
-  $query .= "VALUES('{$user_firstname}', '{$user_lastname}', '{$user_role}', '{$user_name}', '{$user_email}', '{$user_password}')";
+  $query = "INSERT INTO users(firstname, lastname, role, username, email, password) ";
+  $query .= "VALUES('{$firstname}', '{$lastname}', '{$role}', '{$username}', '{$email}', '{$password}')";
 
   $create_user_query = mysqli_query($connection, $query);
   confirmQuery($create_user_query);
@@ -29,22 +29,22 @@ if(isset($_POST['create_user'])) {
     <div class="row">
       <div class="col-md-4">
         <div class="form-group">
-          <label for="user_name">Username</label>
-          <input type="text" class="form-control" name="user_name" id="user_name">
+          <label for="username">Username</label>
+          <input type="text" class="form-control" name="username" id="username">
         </div>
       </div>
 
       <div class="col-md-4">
         <div class="form-group">
-          <label for="user_firstname">Firstname</label>
-          <input type="text" class="form-control" name="user_firstname" id="user_firstname">
+          <label for="firstname">Firstname</label>
+          <input type="text" class="form-control" name="firstname" id="firstname">
         </div>
       </div>
 
       <div class="col-md-4">
         <div class="form-group">
-          <label for="user_lastname">Lastname</label>
-          <input type="text" class="form-control" name="user_lastname" id="user_lastname">
+          <label for="lastname">Lastname</label>
+          <input type="text" class="form-control" name="lastname" id="lastname">
         </div>
       </div>
     </div>
@@ -52,8 +52,8 @@ if(isset($_POST['create_user'])) {
     <div class="row">
       <div class="col-md-4">
         <div class="form-group">
-          <label for="user_role">Role</label>
-          <select name="user_role" class="form-control" id="user_role">
+          <label for="role">Role</label>
+          <select name="role" class="form-control" id="role">
             <option value="admin">Admin</option>
             <option value="subscriber">Subscriber</option>
           </select>
@@ -61,15 +61,15 @@ if(isset($_POST['create_user'])) {
       </div>
       <div class="col-md-4">
         <div class="form-group">
-          <label for="user_email">Email</label>
-          <input type="email" class="form-control" name="user_email" id="user_email">
+          <label for="email">Email</label>
+          <input type="email" class="form-control" name="email" id="email">
         </div>
       </div>
 
       <div class="col-md-4">
         <div class="form-group">
-          <label for="user_password">Password</label>
-          <input type="password" class="form-control" name="user_password" id="user_password">
+          <label for="password">Password</label>
+          <input type="password" class="form-control" name="password" id="password">
         </div>
       </div>
     </div>
