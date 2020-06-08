@@ -87,14 +87,9 @@ if(isset($_POST['create_post'])) {
       <label for="post_tags">Post Tags</label>
       <input type="text" class="form-control" name="post_tags" id="post_tags">
     </div>
-
-    <div class="form-group">
-      <label for="post_content">Post Content</label>
-      <textarea class="form-control" name="post_content" cols="30" rows="10" id="post_content"></textarea>
-    </div>
-
-    <div class="row">
-      <div data-controller="markdown" class="form-group">
+    
+    <div data-controller="markdown" class="form-group">
+      <div class="row">
         <div class="col-md-6">
           <label for="markdown_content">Markdown Content</label>
           <textarea

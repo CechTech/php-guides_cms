@@ -63,53 +63,6 @@
               echo "<p>Fields cannot be empty</p>";
             }
           }
-          ?>
-          <div class="well">
-            <h4>Leave a Comment:</h4>
-            <form method="post">
-              <div class="form-group">
-                <label for="comment_author">Author:</label>
-                <input class="form-control" type="text" name="comment_author" id="comment_author">
-              </div>
-
-              <div class="form-group">
-                <label for="comment_email">Email:</label>
-                <input class="form-control" type="email" name="comment_email" id="comment_email">
-              </div>
-
-              <div class="form-group">
-                <label for="comment_content">Comment:</label>
-                <textarea class="form-control" rows="3" name="comment_content" id="comment_content"></textarea>
-              </div>
-              <button type="submit" name="create_comment" class="btn btn-primary">Submit</button>
-            </form>
-          </div>
-          <hr>
-          <?php
-          $query = "SELECT * FROM comments WHERE comment_post_id = '{$the_post_id}' ";
-          $query .= "AND comment_status = 'approved' ";
-          $query .= "ORDER BY comment_id DESC";
-          $view_all_post_comments = mysqli_query($connection, $query);
-          confirm_query($view_all_post_comments);
-
-          while($row = mysqli_fetch_assoc($view_all_post_comments)) {
-            $comment_author = $row['comment_author'];
-            $comment_content = $row['comment_content'];
-            $comment_date = $row['comment_date'];
-            ?>
-            <div class="media">
-              <a class="pull-left" href="#">
-                <img class="media-object" src="http://placehold.it/64x64" alt="">
-              </a>
-              <div class="media-body">
-                <h4 class="media-heading"><?php echo $comment_author; ?>
-                  <small><?php echo $comment_date; ?></small>
-                </h4>
-                <?php echo $comment_content; ?>
-              </div>
-            </div>
-            <?php
-          }
         }
       } else {
         header("Location: index.php");
@@ -117,5 +70,4 @@
       ?>
     </div>
   </div>
-  <hr>
 </div>

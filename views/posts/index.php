@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-8">
+    <div class="col-sm-12">
       <h1 class="page-header">Guides</h1>
       <?php
       if(isset($_SESSION['role']) && $_SESSION['role'] == 'admin') {
@@ -58,7 +58,7 @@
         <p><span class="glyphicon glyphicon-time"></span><?php echo $post_date ?></p>
         <hr>
         <a href="../post.php?p_id=<?php echo $post_id; ?>">
-          <img class="img-responsive" src="images/<?php echo $post_image;?>" alt="Post image">
+          <img class="img-fluid" src="images/<?php echo $post_image;?>" alt="Post image">
         </a>
         <hr>
         <?php

@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-8">
+    <div class="col-sm-12">
       <?php
       if(isset($_GET['category'])) {
         $post_category_id = escape($_GET['category']);
@@ -70,7 +70,7 @@
           <p><span class="glyphicon glyphicon-time"></span><?php echo $post_date ?></p>
           <hr>
           <a href="../post.php?p_id=<?php echo $post_id; ?>">
-            <img class="img-responsive" src="images/<?php echo $post_image;?>" alt="">
+            <img class="img-fluid" src="images/<?php echo $post_image;?>" alt="">
           </a>
           <hr>
           <?php
@@ -83,7 +83,6 @@
   </div>
 
   <nav aria-label="Page navigation">
-
     <ul class="pagination">
       <?php
       for($i = 1; $i <= $count; $i++) {

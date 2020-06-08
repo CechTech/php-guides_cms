@@ -8,7 +8,7 @@ if(!is_admin($_SESSION['username'])) {
 
   <form method="post">
     <div class="table-responsive">
-      <table class="table table-bordered table-hover">
+      <table class="table table-bordered">
         <thead>
         <tr>
           <th>ID</th>
