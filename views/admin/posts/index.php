@@ -13,7 +13,6 @@
           <th>Status</th>
           <th>Image</th>
           <th>Tags</th>
-          <th>Comments</th>
           <th>Post Views</th>
           <th>Date</th>
           <th>View</th>
@@ -40,7 +39,6 @@
           $post_status = $row ['post_status'];
           $post_image = $row ['post_image'];
           $post_tags = $row ['post_tags'];
-          $post_comment_count = $row ['post_comment_count'];
           $post_date = $row ['post_date'];
           $post_content = $row ['post_content'];
           $post_view_count = $row ['post_view_count'];
@@ -58,15 +56,6 @@
           echo "<td>{$post_status}</td>";
           echo "<td><img width='100' src='../images/{$post_image}' alt='Post image' /></td>";
           echo "<td>{$post_tags}</td>";
-
-          $query = "SELECT * FROM comments WHERE comment_post_id = $post_id";
-          $send_comment_query = mysqli_query($connection, $query);
-          confirm_query($send_comment_query);
-
-          $row = mysqli_fetch_assoc($send_comment_query);
-          $count_comments = mysqli_num_rows($send_comment_query);
-
-          echo "<td><a href='post_comments.php?id=$post_id'>{$count_comments}</a></td>";
           echo "<td>{$post_view_count}</td>";
           echo "<td>{$post_date}</td>";
           echo "<td><a href='../post.php?p_id={$post_id}'>View</a></td>";
@@ -100,30 +89,4 @@
       </table>
     </div>
   </form>
-
-  <nav aria-label="Page navigation">
-    <ul class="pagination pagination-lg">
-      <?php
-      for($i = 1; $i <= $count; $i++) {
-        if($i == $page) {
-          echo "<li class='active'><a href='user_posts.php?user=$the_post_user&p_id=$post_id&page={$i}'>{$i}</a></li>";
-        } else {
-          echo "<li><a href='user_posts.php?user=$the_post_user&p_id=$post_id&page={$i}'>{$i}</a></li>";
-        }
-      }
-      ?>
-    </ul>
-  </nav>
 </div>
-
-<!--<script>
-  $(document).ready(function() {
-    $('.delete_link').on('click', function() {
-      var id = $(this).attr("rel");
-      var delete_url = "posts.php?delete=" + id + " ";
-
-      $(".modal_delete_link").attr("href", delete_url);
-      $("#myModal").modal('show');
-    });
-  });
-</script>-->
