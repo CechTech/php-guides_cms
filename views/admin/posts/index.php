@@ -9,7 +9,7 @@
           <th>ID</th>
           <th>Users</th>
           <th>Title</th>
-          <th>technology</th>
+          <th>Technology</th>
           <th>Status</th>
           <th>Image</th>
           <th>Tags</th>

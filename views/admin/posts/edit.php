@@ -15,7 +15,6 @@ if(isset($_GET['p_id'])) {
     $post_image = $row ['post_image'];
     $post_tags = $row ['post_tags'];
     $post_content = $row ['post_content'];
-    $post_comment_count = $row ['post_comment_count'];
     $post_date = $row ['post_date'];
   }
 
@@ -27,7 +26,7 @@ if(isset($_GET['p_id'])) {
     $post_image = escape($_FILES['post_image'] ['name']);
     $post_image_tmp = escape($_FILES['post_image'] ['tmp_name']);
     $post_tags = escape($_POST['post_tags']);
-    $post_content = $_POST['post_content'];
+    $post_content = escape($_POST['post_content']);
 
     move_uploaded_file($post_image_tmp, "../images/$post_image");
 
