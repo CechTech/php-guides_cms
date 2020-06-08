@@ -61,7 +61,7 @@ if(isset($_GET['p_id'])) {
 }
 ?>
 
-<div class="container">
+<div class="container post-form">
   <h1 class="page-header">Edit Post</h1>
 
   <form method="post" enctype="multipart/form-data">
@@ -146,14 +146,14 @@ if(isset($_GET['p_id'])) {
           <textarea
             data-target="markdown.content"
             data-action="keyup->markdown#render_markdown"
-            class="form-control"
+            class="markdown-input"
             name="post_content"
             id="post_content"
             rows="30"><?php echo str_replace('\r\n', '&#013;&#010;', $post_content); ?></textarea>
         </div>
         <div class="col-md-6">
           <label for="post_content">Preview</label>
-          <div data-target="markdown.output"></div>
+          <div class="markdown-preview" data-target="markdown.output"></div>
         </div>
       </div>
     </div>
