@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="col-sm-12">
+    <div class="col-sm-8 offset-2">
       <?php
       if(isset($_GET['p_id'])) {
         $the_post_id = escape($_GET['p_id']);

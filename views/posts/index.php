@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="col-sm-12">
+    <div class="col-sm-8 offset-2">
       <h1 class="page-header">Guides</h1>
       <?php
       if(isset($_SESSION['role']) && $_SESSION['role'] == 'admin') {

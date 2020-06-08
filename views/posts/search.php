@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-8">
+    <div class="col-sm-8 offset-2">
       <h1 class="page-header">Search Results</h1>
       <?php
       if(isset($_POST['submit_search'])) {
@@ -31,7 +31,7 @@
             <p><span class="glyphicon glyphicon-time"></span><?php echo $post_date ?></p>
             <hr>
             <a href="../../post.php?p_id=<?php echo $post_id; ?>">
-              <img class="img-responsive" src="images/<?php echo $post_image;?>" alt="">
+              <img class="img-fluid" src="images/<?php echo $post_image;?>" alt="">
             </a>
             <hr>
             <?php
