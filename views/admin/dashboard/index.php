@@ -10,12 +10,12 @@
   <div class="row">
     <div class="col-lg-3 col-md-6">
       <div class="card">
-          <div class="card-header">
-            <i class="fa fa-file-text fa-3x"></i>
+        <div class="card-header">
+          <i class="fa fa-file-text fa-3x"></i>
 
-            <span><?php echo $post_count = record_count('posts'); ?></span>
-            <span>Posts</span>
-          </div>
+          <span><?php echo $post_count = record_count('posts'); ?></span>
+          <span>Posts</span>
+        </div>
 
         <a href="posts.php">
           <div class="card-body">
@@ -49,10 +49,10 @@
     <div class="col-lg-3 col-md-6">
       <div class="card">
         <div class="card-header">
-              <i class="fa fa-list fa-3x"></i>
+          <i class="fa fa-list fa-3x"></i>
 
-              <span class='huge'><?php echo $technology_count = record_count('technologies'); ?></span>
-              <span>Technologies</span>
+          <span class='huge'><?php echo $technology_count = record_count('technologies'); ?></span>
+          <span>Technologies</span>
         </div>
 
         <a href="technologies.php">
@@ -74,7 +74,7 @@
 
   <div class="row graph">
     <div class="col-sm-12">
-      <script type="text/javascript">
+      <script>
         google.charts.load('current', {'packages':['bar']});
         google.charts.setOnLoadCallback(drawChart);
 
@@ -102,6 +102,7 @@
           chart.draw(data, options);
         }
       </script>
-      <div id="columnchart_material" style="width: 'auto'; height: 500px;"></div>
+      <div id="columnchart_material" style="width: auto; height: 500px;"></div>
     </div>
   </div>
+</div>

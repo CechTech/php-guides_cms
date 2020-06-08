@@ -1,26 +1,26 @@
-<form action="" method="post">
+<form action="technologies.php" method="post">
   <div class="form-group">
-    <label for="cat-title">Edit Technology</label>
+    <label for="edit-title">Edit Technology</label>
     <?php
 
     if(isset($_GET['edit'])){
       $id = escape($_GET['edit']);
 
       $query = "SELECT * FROM technologies WHERE id = $id ";
-      $select_categories_id = mysqli_query($connection,$query);
+      $select_technologies_id = mysqli_query($connection,$query);
 
-      while($row = mysqli_fetch_assoc($select_categories_id)) {
+      while($row = mysqli_fetch_assoc($select_technologies_id)) {
         $id = $row['id'];
         $title = $row['title'];
 
         ?>
 
-        <input value="<?php echo $title; ?>" type="text" class="form-control" name="title">
+        <input value="<?php echo $title; ?>" type="text" class="form-control" name="title" id="edit-title">
 
       <?php }} ?>
 
     <?php
-    if(isset($_POST['update_category'])) {
+    if(isset($_POST['update_technology'])) {
       $the_title = escape($_POST['title']);
       $stmt = mysqli_prepare($connection, "UPDATE technologies SET title = ? WHERE id = ? ");
       mysqli_stmt_bind_param($stmt, 'si', $the_title, $id);

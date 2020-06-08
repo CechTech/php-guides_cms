@@ -79,20 +79,20 @@
         header("Location: index.php");
       }
       ?>
+
+      <nav aria-label="Page navigation">
+        <ul class="pagination">
+          <?php
+          for($i = 1; $i <= $count; $i++) {
+            if($i == $page) {
+              echo "<li class='active page-item'><a class='page-link' href='technology.php?technology=$post_technology_id&page={$i}'>{$i}</a></li>";
+            } else {
+              echo "<li class='page-item'><a class='page-link' href='technology.php?technology=$post_technology_id&page={$i}'>{$i}</a></li>";
+            }
+          }
+          ?>
+        </ul>
+      </nav>
     </div>
   </div>
-
-  <nav aria-label="Page navigation">
-    <ul class="pagination">
-      <?php
-      for($i = 1; $i <= $count; $i++) {
-        if($i == $page) {
-          echo "<li class='active page-item'><a class='page-link' href='technology.php?technology=$post_technology_id&page={$i}'>{$i}</a></li>";
-        } else {
-          echo "<li class='page-item'><a class='page-link' href='technology.php?technology=$post_technology_id&page={$i}'>{$i}</a></li>";
-        }
-      }
-      ?>
-    </ul>
-  </nav>
-  <hr>
+</div>

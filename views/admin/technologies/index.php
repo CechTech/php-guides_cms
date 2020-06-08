@@ -6,7 +6,7 @@
       <form action="technologies.php" method="post">
         <div class="form-group">
           <label for="title">Technology Title</label>
-          <input class="form-control" type="text" name="title">
+          <input class="form-control" type="text" name="title" id="title">
         </div>
 
         <div class="form-group">
@@ -41,3 +41,4 @@
       </table>
     </div>
   </div>
+</div>

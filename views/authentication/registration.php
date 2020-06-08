@@ -63,7 +63,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
     <div class="row justify-content-md-center">
       <div class="col-sm-6">
         <h1>Register</h1>
-        <form role="form" action="registration.php" method="post" id="login-form" autocomplete="off">
+        <form action="registration.php" method="post" id="login-form" autocomplete="off">
           <div class="form-group">
             <label for="username" class="sr-only">username</label>
             <input type="text" name="username" id="username" class="form-control" placeholder="Username"
@@ -93,9 +93,9 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
             <p><?php echo isset($error['password']) ? $error['password'] : '' ?></p>
           </div>
 
-          <input type="submit" name="resgister" id="btn-login" class="btn btn-custom btn-lg btn-block" value="Register">
+          <input type="submit" name="resgister" id="btn-login" class="btn btn-secondary btn-lg btn-block" value="Register">
         </form>
       </div>
     </div>
   </section>
-  <hr>
+</div>
