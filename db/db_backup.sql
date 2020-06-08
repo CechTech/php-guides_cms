@@ -73,7 +73,7 @@ CREATE TABLE `posts` (
   `post_content` text COLLATE utf8_bin NOT NULL,
   `post_tags` varchar(255) COLLATE utf8_bin NOT NULL,
   `post_view_count` int(7) NOT NULL,
-  `post_category_id` int(5) NOT NULL,
+  `post_technology_id` int(5) NOT NULL,
   `post_comment_count` int(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 

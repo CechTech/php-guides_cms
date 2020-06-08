@@ -2,14 +2,14 @@
   <div class="row">
     <div class="col-sm-12">
       <?php
-      if(isset($_GET['category'])) {
-        $post_category_id = escape($_GET['category']);
+      if(isset($_GET['technology'])) {
+        $post_technology_id = escape($_GET['technology']);
 
-        $query = "SELECT * FROM categories WHERE cat_id = '{$post_category_id}'";
-        $select_categories = mysqli_query($connection, $query);
-        confirm_query($select_categories);
+        $query = "SELECT * FROM technologies WHERE cat_id = '{$post_technology_id}'";
+        $select_technologies = mysqli_query($connection, $query);
+        confirm_query($select_technologies);
 
-        $row = mysqli_fetch_assoc($select_categories);
+        $row = mysqli_fetch_assoc($select_technologies);
         $cat_title = $row['cat_title'];
         ?>
         <h1 class="page-header">
@@ -17,9 +17,9 @@
         </h1>
         <?php
         if(isset($_SESSION['role']) && $_SESSION['role'] == 'admin') {
-          $post_query_count = "SELECT * FROM posts WHERE post_category_id = '{$post_category_id}'";
+          $post_query_count = "SELECT * FROM posts WHERE post_technology_id = '{$post_technology_id}'";
         } else {
-          $post_query_count = "SELECT * FROM posts WHERE post_category_id = '{$post_category_id}' AND post_status = 'published'";
+          $post_query_count = "SELECT * FROM posts WHERE post_technology_id = '{$post_technology_id}' AND post_status = 'published'";
         }
 
         $find_count = mysqli_query($connection, $post_query_count);
@@ -47,9 +47,9 @@
         }
 
         if(isset($_SESSION['role']) &&  $_SESSION['role'] == 'admin') {
-          $query = "SELECT * FROM posts WHERE post_category_id = '{$post_category_id}' LIMIT {$limit}, {$per_page}";
+          $query = "SELECT * FROM posts WHERE post_technology_id = '{$post_technology_id}' LIMIT {$limit}, {$per_page}";
         } else {
-          $query = "SELECT * FROM posts WHERE post_category_id = '{$post_category_id}' AND post_status = 'published' LIMIT {$limit}, {$per_page}";
+          $query = "SELECT * FROM posts WHERE post_technology_id = '{$post_technology_id}' AND post_status = 'published' LIMIT {$limit}, {$per_page}";
         }
 
         $result = mysqli_query($connection, $query);
@@ -87,9 +87,9 @@
       <?php
       for($i = 1; $i <= $count; $i++) {
         if($i == $page) {
-          echo "<li class='active page-item'><a class='page-link' href='category.php?category=$post_category_id&page={$i}'>{$i}</a></li>";
+          echo "<li class='active page-item'><a class='page-link' href='technology.php?technology=$post_technology_id&page={$i}'>{$i}</a></li>";
         } else {
-          echo "<li class='page-item'><a class='page-link' href='category.php?category=$post_category_id&page={$i}'>{$i}</a></li>";
+          echo "<li class='page-item'><a class='page-link' href='technology.php?technology=$post_technology_id&page={$i}'>{$i}</a></li>";
         }
       }
       ?>

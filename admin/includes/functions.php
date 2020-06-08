@@ -39,7 +39,7 @@ function escape($string) {
 	return mysqli_real_escape_string($connection, trim($string));
 }
 
-function insert_categories() {
+function insert_technologies() {
 	global $connection;
 
 	if(isset($_POST['submit'])) {
@@ -48,43 +48,43 @@ function insert_categories() {
 		if($cat_title == "" || empty($cat_title)) {
 			echo "This field should not be empty";
 		} else {
-			$query = "INSERT INTO categories(cat_title) ";
+			$query = "INSERT INTO technologies(cat_title) ";
 			$query .= "VALUE('{$cat_title}') ";
-			$create_category_query = mysqli_query($connection, $query);
-			confirm_query($create_category_query);
+			$create_technology_query = mysqli_query($connection, $query);
+			confirm_query($create_technology_query);
 		}
 	}
 }
 
-function show_all_categories() {
+function show_all_technologies() {
 	global $connection;
 
-	$query = "SELECT * FROM categories";
-	$select_categories = mysqli_query($connection, $query);
-	confirm_query($select_categories);
+	$query = "SELECT * FROM technologies";
+	$select_technologies = mysqli_query($connection, $query);
+	confirm_query($select_technologies);
 
-	while($row = mysqli_fetch_assoc($select_categories)) {
+	while($row = mysqli_fetch_assoc($select_technologies)) {
 		$cat_id = $row['cat_id'];
 		$cat_title = $row['cat_title'];
 		echo "<tr>";
 		echo "<td>{$cat_id}</td>";
 		echo "<td>{$cat_title}</td>";
-		echo "<td><a href='categories.php?edit={$cat_id}'>Edit</a></td>";
-		echo "<td><a href='categories.php?delete={$cat_id}'>Delete</a></td>";
+		echo "<td><a href='technologies.php?edit={$cat_id}'>Edit</a></td>";
+		echo "<td><a href='technologies.php?delete={$cat_id}'>Delete</a></td>";
 		echo "</tr>";
 	}
 }
 
-function delete_categories() {
+function delete_technologies() {
 	global $connection;
 
 	if(isset($_GET['delete'])) {
 		$cat_id_delete = escape($_GET['delete']);
-		$query = "DELETE FROM categories WHERE cat_id = '{$cat_id_delete}'";
+		$query = "DELETE FROM technologies WHERE cat_id = '{$cat_id_delete}'";
 		$delete_query = mysqli_query($connection, $query);
 		confirm_query($delete_query);
 
-		header("Location: categories.php");
+		header("Location: technologies.php");
 	}
 }
 

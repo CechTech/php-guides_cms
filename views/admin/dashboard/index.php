@@ -51,11 +51,11 @@
         <div class="card-header">
               <i class="fa fa-list fa-3x"></i>
 
-              <span class='huge'><?php echo $category_count = record_count('categories'); ?></span>
-              <span>Categories</span>
+              <span class='huge'><?php echo $technology_count = record_count('technologies'); ?></span>
+              <span>Technologies</span>
         </div>
 
-        <a href="categories.php">
+        <a href="technologies.php">
           <div class="card-body">
             <span class="pull-left">View Details</span>
             <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -82,8 +82,8 @@
           var data = google.visualization.arrayToDataTable([
             ['Date', 'Count'],
             <?php
-            $element_text = ['All Posts', 'Active Posts', 'Draft Posts', 'Users', 'Subscribers', 'categories'];
-            $element_count = [$post_count, $post_published_counts, $post_draft_counts, $user_count, $subscriber_count, $category_count];
+            $element_text = ['All Posts', 'Active Posts', 'Draft Posts', 'Users', 'Subscribers', 'technologies'];
+            $element_count = [$post_count, $post_published_counts, $post_draft_counts, $user_count, $subscriber_count, $technology_count];
 
             for($i = 0; $i < 6; $i++) {
               echo "['{$element_text[$i]}'" . ", " . "{$element_count[$i]}],";

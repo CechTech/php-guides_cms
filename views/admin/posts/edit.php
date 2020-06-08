@@ -10,7 +10,7 @@ if(isset($_GET['p_id'])) {
     $post_id = $row ['post_id'];
     $post_user = $row ['post_user'];
     $post_title = $row ['post_title'];
-    $post_category_id = $row ['post_category_id'];
+    $post_technology_id = $row ['post_technology_id'];
     $post_status = $row ['post_status'];
     $post_image = $row ['post_image'];
     $post_tags = $row ['post_tags'];
@@ -21,7 +21,7 @@ if(isset($_GET['p_id'])) {
 
   if(isset($_POST['update_post'])) {
     $post_title = escape($_POST['post_title']);
-    $post_category_id = escape($_POST['post_category']);
+    $post_technology_id = escape($_POST['post_technology']);
     $post_user = escape($_POST['post_user']);
     $post_status = escape($_POST['post_status']);
     $post_image = escape($_FILES['post_image'] ['name']);
@@ -44,7 +44,7 @@ if(isset($_GET['p_id'])) {
 
     $query = "UPDATE posts SET ";
     $query .= "post_title = '{$post_title}', ";
-    $query .= "post_category_id = '{$post_category_id}', ";
+    $query .= "post_technology_id = '{$post_technology_id}', ";
     $query .= "post_user = '{$post_user}', ";
     $query .= "post_status = '{$post_status}', ";
     $query .= "post_image = '{$post_image}', ";
@@ -72,19 +72,19 @@ if(isset($_GET['p_id'])) {
 
     <div class="row">
       <div class="form-group col-md-4">
-        <label for="post_category">Post Category</label>
-        <select name="post_category" class="form-control" id="post_category">
+        <label for="post_technology">Post technology</label>
+        <select name="post_technology" class="form-control" id="post_technology">
           <?php
-          $query = "SELECT * FROM categories";
+          $query = "SELECT * FROM technologies";
 
-          $select_categories = mysqli_query($connection, $query);
-          confirm_query($select_categories);
+          $select_technologies = mysqli_query($connection, $query);
+          confirm_query($select_technologies);
 
-          while($row = mysqli_fetch_assoc($select_categories)) {
+          while($row = mysqli_fetch_assoc($select_technologies)) {
             $cat_id = $row ['cat_id'];
             $cat_title = $row ['cat_title'];
 
-            if($cat_id == $post_category_id) {
+            if($cat_id == $post_technology_id) {
               echo "<option selected value='{$cat_id}'>{$cat_title}</option>";
             } else {
               echo "<option value='{$cat_id}'>{$cat_title}</option>";

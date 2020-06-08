@@ -20,7 +20,7 @@
         </div>
       </li>
 
-      <li class='nav-item'><a class='nav-link' href="categories.php"><i class="fa fa-fw fa-folder"></i> Categories</a></li>
+      <li class='nav-item'><a class='nav-link' href="technologies.php"><i class="fa fa-fw fa-folder"></i> Technologies</a></li>
 
       <li class="nav-item dropdown <?php echo $_SESSION['role'] == 'admin' ? '' : 'd-none' ?>">
         <a class='nav-link dropdown-toggle' href="#" id="usersDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

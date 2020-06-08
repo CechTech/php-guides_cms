@@ -1,32 +1,32 @@
 <div class="container">
-  <h1 class="page-header">Categories</h1>
+  <h1 class="page-header">Technologies</h1>
   <div class="row">
-    <div class="col-xs-6">
-      <?php insert_categories(); ?>
-      <form action="categories.php" method="post">
+    <div class="col-sm-4">
+      <?php insert_technologies(); ?>
+      <form action="technologies.php" method="post">
         <div class="form-group">
-          <label for="cat_title">Category Title</label>
+          <label for="cat_title">Technology Title</label>
           <input class="form-control" type="text" name="cat_title">
         </div>
 
         <div class="form-group">
-          <input class="btn btn-primary" type="submit" name="submit" value="Add Category">
+          <input class="btn btn-primary" type="submit" name="submit" value="Add technology">
         </div>
       </form>
       <?php
       if(isset($_GET['edit'])) {
         $cat_id = escape($_GET['edit']);
-        include "includes/update_categories.php";
+        include "includes/update_technologies.php";
       }
       ?>
     </div>
 
-    <div class="col-xs-6">
+    <div class="col-sm-8">
       <table class="table table-bordered">
         <thead>
         <tr>
           <th>ID</th>
-          <th>Category Title</th>
+          <th>Technology Title</th>
           <th>Edit</th>
           <th>Delete</th>
         </tr>
@@ -34,8 +34,8 @@
 
         <tbody>
         <?php
-        show_all_categories();
-        delete_categories();
+        show_all_technologies();
+        delete_technologies();
         ?>
         </tbody>
       </table>

@@ -1,7 +1,6 @@
 <div class="container">
   <div class="row">
     <div class="col-md-12">
-      <h1 class="page-header">CMS</h1>
       <?php
       if(isset($_GET['p_id'])) {
         $the_post_id = escape($_GET['p_id']);

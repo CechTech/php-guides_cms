@@ -1,7 +1,7 @@
 <?php
 if(isset($_POST['create_post'])) {
   $post_title = escape($_POST['post_title']);
-  $post_category_id = escape($_POST['post_category']);
+  $post_technology_id = escape($_POST['post_technology']);
   $post_user = escape($_POST['post_user']);
   $post_status = escape($_POST['post_status']);
   $post_image = escape($_FILES['post_image'] ['name']);
@@ -12,8 +12,8 @@ if(isset($_POST['create_post'])) {
 
   move_uploaded_file($post_image_tmp, "../images/$post_image");
 
-  $query = "INSERT INTO posts(post_title, post_category_id, post_user, post_status, post_image, post_tags, post_content, post_date) ";
-  $query .= "VALUES('{$post_title}', '{$post_category_id}', '{$post_user}', '{$post_status}', '{$post_image}', '{$post_tags}', '{$post_content}', now())";
+  $query = "INSERT INTO posts(post_title, post_technology_id, post_user, post_status, post_image, post_tags, post_content, post_date) ";
+  $query .= "VALUES('{$post_title}', '{$post_technology_id}', '{$post_user}', '{$post_status}', '{$post_image}', '{$post_tags}', '{$post_content}', now())";
 
   $create_post_query = mysqli_query($connection, $query);
   confirm_query($create_post_query);
@@ -34,14 +34,14 @@ if(isset($_POST['create_post'])) {
 
     <div class="row">
       <div class="form-group col-md-4">
-        <label for="post_category">Post Category</label>
-        <select name="post_category" class="form-control" id="post_category">
+        <label for="post_technology">Post technology</label>
+        <select name="post_technology" class="form-control" id="post_technology">
           <?php
-          $query = "SELECT * FROM categories";
-          $select_categories = mysqli_query($connection, $query);
-          confirm_query($select_categories);
+          $query = "SELECT * FROM technologies";
+          $select_technologies = mysqli_query($connection, $query);
+          confirm_query($select_technologies);
 
-          while($row = mysqli_fetch_assoc($select_categories)) {
+          while($row = mysqli_fetch_assoc($select_technologies)) {
             $cat_id = $row ['cat_id'];
             $cat_title = $row ['cat_title'];
 

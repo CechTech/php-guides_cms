@@ -8,15 +8,15 @@
   <div class="collapse navbar-collapse" id="guides-navbar">
     <ul class="navbar-nav mr-auto">
       <?php
-      $query = "SELECT * FROM categories";
-      $category_menu = mysqli_query($connection, $query);
-      confirm_query($category_menu);
+      $query = "SELECT * FROM technologies";
+      $technology_menu = mysqli_query($connection, $query);
+      confirm_query($technology_menu);
 
-      while ($row = mysqli_fetch_assoc($category_menu)) {
+      while ($row = mysqli_fetch_assoc($technology_menu)) {
         $cat_title = $row['cat_title'];
         $cat_id = $row['cat_id'];
 
-        $category_class = '';
+        $technology_class = '';
         $registration_class = '';
         $contact_class = '';
 
@@ -24,15 +24,15 @@
         $registration = 'registration.php';
         $contact = 'contact.php';
 
-        if (isset($_GET['category']) && $_GET['category'] == $cat_id) {
-          $category_class = 'active';
+        if (isset($_GET['technology']) && $_GET['technology'] == $cat_id) {
+          $technology_class = 'active';
         } else if ($page_name == $registration) {
           $registration_class = 'active';
         } else if ($page_name == $contact) {
           $contact_class = 'active';
         }
 
-        echo "<li class='nav-item $category_class'><a class='nav-link' href='category.php?category=$cat_id&page=1'>$cat_title</a></li>";
+        echo "<li class='nav-item $technology_class'><a class='nav-link' href='technology.php?technology=$cat_id&page=1'>$cat_title</a></li>";
       }
       ?>
 

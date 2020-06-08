@@ -9,7 +9,7 @@
           <th>ID</th>
           <th>Users</th>
           <th>Title</th>
-          <th>Category</th>
+          <th>technology</th>
           <th>Status</th>
           <th>Image</th>
           <th>Tags</th>
@@ -25,8 +25,8 @@
 
         <tbody>
         <?php
-        $query = "SELECT * FROM posts LEFT JOIN categories ";
-        $query .= "ON posts.post_category_id = categories.cat_id ";
+        $query = "SELECT * FROM posts LEFT JOIN technologies ";
+        $query .= "ON posts.post_technology_id = technologies.cat_id ";
         $query .= "ORDER BY post_id DESC";
 
         $select_posts = mysqli_query($connection, $query);
@@ -36,7 +36,7 @@
           $post_id = $row ['post_id'];
           $post_user = $row ['post_user'];
           $post_title = $row ['post_title'];
-          $post_category_id = $row ['post_category_id'];
+          $post_technology_id = $row ['post_technology_id'];
           $post_status = $row ['post_status'];
           $post_image = $row ['post_image'];
           $post_tags = $row ['post_tags'];
