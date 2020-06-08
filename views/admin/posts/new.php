@@ -97,7 +97,7 @@ if(isset($_POST['create_post'])) {
             data-action="keyup->markdown#render_markdown"
             type="text"
             class="form-control"
-            name="markdown_content"
+            name="markdown-input"
             id="markdown_content"
             rows="30"></textarea>
         </div>
