@@ -8,11 +8,9 @@
   <meta charset="utf-8"/>
   <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description"
-        content="This website was built for my learning purposes. Project is written in PHP and uses MySQL database. Bootstrap is used for sake of simplicity."/>
+  <meta name="description" content="CMS for developers with markdown and diagram support."/>
   <meta name="author" content="Jiří Čech"/>
-  <meta name="keywords"
-        content="cms, php, unsplash, photos, nature, buildings, architecture, space, bootstrap, mysql"/>
+  <meta name="keywords" content="cms, php, technologies, diagrams, markdown, bootstrap, mysql"/>
   <link rel="icon" href="images/favicon.ico" type="image/x-icon"/>
 
   <script src="public/bundle.js" async></script>

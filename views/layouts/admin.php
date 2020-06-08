@@ -14,7 +14,7 @@ if(!isset($_SESSION['role'])) {
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="Administration layout for CMS." />
+  <meta name="description" content="Administration for guides cms." />
   <meta name="author" content="Jiří Čech" />
   <meta name="keywords" content="cms, php, bootstrap, mysql, admin" />
   <link rel="icon" href="../../images/favicon.ico" type="image/x-icon" />
