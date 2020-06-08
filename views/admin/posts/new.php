@@ -87,7 +87,7 @@ if(isset($_POST['create_post'])) {
       <label for="post_tags">Post Tags</label>
       <input type="text" class="form-control" name="post_tags" id="post_tags">
     </div>
-    
+
     <div data-controller="markdown" class="form-group">
       <div class="row">
         <div class="col-md-6">
