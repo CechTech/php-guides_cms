@@ -42,10 +42,10 @@ if(isset($_POST['create_post'])) {
           confirm_query($select_technologies);
 
           while($row = mysqli_fetch_assoc($select_technologies)) {
-            $cat_id = $row ['cat_id'];
-            $cat_title = $row ['cat_title'];
+            $id = $row ['id'];
+            $title = $row ['title'];
 
-            echo "<option value='{$cat_id}'>{$cat_title}</option>";
+            echo "<option value='{$id}'>{$title}</option>";
           }
           ?>
         </select>

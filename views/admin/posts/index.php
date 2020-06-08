@@ -26,7 +26,7 @@
         <tbody>
         <?php
         $query = "SELECT * FROM posts LEFT JOIN technologies ";
-        $query .= "ON posts.post_technology_id = technologies.cat_id ";
+        $query .= "ON posts.post_technology_id = technologies.id ";
         $query .= "ORDER BY post_id DESC";
 
         $select_posts = mysqli_query($connection, $query);
@@ -44,7 +44,7 @@
           $post_date = $row ['post_date'];
           $post_content = $row ['post_content'];
           $post_view_count = $row ['post_view_count'];
-          $cat_title = $row ['cat_title'];
+          $title = $row ['title'];
 
           echo "<tr>";
           echo "<td>{$post_id}</td>";
@@ -54,7 +54,7 @@
           }
 
           echo "<td>{$post_title}</td>";
-          echo "<td>{$cat_title}</td>";
+          echo "<td>{$title}</td>";
           echo "<td>{$post_status}</td>";
           echo "<td><img width='100' src='../images/{$post_image}' alt='Post image' /></td>";
           echo "<td>{$post_tags}</td>";

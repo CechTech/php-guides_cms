@@ -81,13 +81,13 @@ if(isset($_GET['p_id'])) {
           confirm_query($select_technologies);
 
           while($row = mysqli_fetch_assoc($select_technologies)) {
-            $cat_id = $row ['cat_id'];
-            $cat_title = $row ['cat_title'];
+            $id = $row ['id'];
+            $title = $row ['title'];
 
-            if($cat_id == $post_technology_id) {
-              echo "<option selected value='{$cat_id}'>{$cat_title}</option>";
+            if($id == $post_technology_id) {
+              echo "<option selected value='{$id}'>{$title}</option>";
             } else {
-              echo "<option value='{$cat_id}'>{$cat_title}</option>";
+              echo "<option value='{$id}'>{$title}</option>";
             }
           }
           ?>

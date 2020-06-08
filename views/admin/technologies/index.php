@@ -5,8 +5,8 @@
       <?php insert_technologies(); ?>
       <form action="technologies.php" method="post">
         <div class="form-group">
-          <label for="cat_title">Technology Title</label>
-          <input class="form-control" type="text" name="cat_title">
+          <label for="title">Technology Title</label>
+          <input class="form-control" type="text" name="title">
         </div>
 
         <div class="form-group">
@@ -15,8 +15,8 @@
       </form>
       <?php
       if(isset($_GET['edit'])) {
-        $cat_id = escape($_GET['edit']);
-        include "includes/update_technologies.php";
+        $id = escape($_GET['edit']);
+        include "../views/admin/technologies/update_technologies.php";
       }
       ?>
     </div>

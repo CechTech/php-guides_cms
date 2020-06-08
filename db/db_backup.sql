@@ -21,15 +21,15 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `categories` (
-  `cat_id` int(5) NOT NULL,
-  `cat_title` varchar(255) COLLATE utf8_bin NOT NULL
+  `id` int(5) NOT NULL,
+  `title` varchar(255) COLLATE utf8_bin NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- Dumping data for table `categories`
 --
 
-INSERT INTO `categories` (`cat_id`, `cat_title`) VALUES
+INSERT INTO `categories` (`id`, `title`) VALUES
 (2, 'City'),
 (3, 'Nature'),
 (4, 'Space');
@@ -136,7 +136,7 @@ INSERT INTO `users` (`id`, `username`, `email`, `password`, `role`, `firstname`,
 -- Indexes for table `categories`
 --
 ALTER TABLE `categories`
-  ADD PRIMARY KEY (`cat_id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `comments`
@@ -166,7 +166,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `cat_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `comments`
 --
@@ -196,4 +196,4 @@ ALTER TABLE `comments`
 -- Constraints for table `posts`
 --
 ALTER TABLE `posts`
-  ADD CONSTRAINT `posts_ibfk_1` FOREIGN KEY (`post_category_id`) REFERENCES `categories` (`cat_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `posts_ibfk_1` FOREIGN KEY (`post_category_id`) REFERENCES `categories` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;

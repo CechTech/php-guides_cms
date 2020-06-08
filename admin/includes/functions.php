@@ -43,13 +43,13 @@ function insert_technologies() {
 	global $connection;
 
 	if(isset($_POST['submit'])) {
-		$cat_title = escape($_POST['cat_title']);
+		$title = escape($_POST['title']);
 
-		if($cat_title == "" || empty($cat_title)) {
+		if($title == "" || empty($title)) {
 			echo "This field should not be empty";
 		} else {
-			$query = "INSERT INTO technologies(cat_title) ";
-			$query .= "VALUE('{$cat_title}') ";
+			$query = "INSERT INTO technologies(title) ";
+			$query .= "VALUE('{$title}') ";
 			$create_technology_query = mysqli_query($connection, $query);
 			confirm_query($create_technology_query);
 		}
@@ -64,13 +64,13 @@ function show_all_technologies() {
 	confirm_query($select_technologies);
 
 	while($row = mysqli_fetch_assoc($select_technologies)) {
-		$cat_id = $row['cat_id'];
-		$cat_title = $row['cat_title'];
+		$id = $row['id'];
+		$title = $row['title'];
 		echo "<tr>";
-		echo "<td>{$cat_id}</td>";
-		echo "<td>{$cat_title}</td>";
-		echo "<td><a href='technologies.php?edit={$cat_id}'>Edit</a></td>";
-		echo "<td><a href='technologies.php?delete={$cat_id}'>Delete</a></td>";
+		echo "<td>{$id}</td>";
+		echo "<td>{$title}</td>";
+		echo "<td><a href='technologies.php?edit={$id}'>Edit</a></td>";
+		echo "<td><a href='technologies.php?delete={$id}'>Delete</a></td>";
 		echo "</tr>";
 	}
 }
@@ -79,8 +79,8 @@ function delete_technologies() {
 	global $connection;
 
 	if(isset($_GET['delete'])) {
-		$cat_id_delete = escape($_GET['delete']);
-		$query = "DELETE FROM technologies WHERE cat_id = '{$cat_id_delete}'";
+		$id_delete = escape($_GET['delete']);
+		$query = "DELETE FROM technologies WHERE id = '{$id_delete}'";
 		$delete_query = mysqli_query($connection, $query);
 		confirm_query($delete_query);
 

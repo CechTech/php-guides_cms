@@ -5,15 +5,15 @@
       if(isset($_GET['technology'])) {
         $post_technology_id = escape($_GET['technology']);
 
-        $query = "SELECT * FROM technologies WHERE cat_id = '{$post_technology_id}'";
+        $query = "SELECT * FROM technologies WHERE id = '{$post_technology_id}'";
         $select_technologies = mysqli_query($connection, $query);
         confirm_query($select_technologies);
 
         $row = mysqli_fetch_assoc($select_technologies);
-        $cat_title = $row['cat_title'];
+        $title = $row['title'];
         ?>
         <h1 class="page-header">
-          All Posts In <?php echo $cat_title; ?>
+          All Posts In <?php echo $title; ?>
         </h1>
         <?php
         if(isset($_SESSION['role']) && $_SESSION['role'] == 'admin') {
