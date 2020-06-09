@@ -65,7 +65,8 @@ function show_all_technologies() {
 
 	while($row = mysqli_fetch_assoc($select_technologies)) {
 		$id = $row['id'];
-		$title = $row['title'];
+		$title = htmlspecialchars($row['title']);
+
 		echo "<tr>";
 		echo "<td>{$id}</td>";
 		echo "<td>{$title}</td>";
